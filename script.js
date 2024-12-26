@@ -134,7 +134,7 @@ async function updateProgressBar() {
         const totalParticipantCount = actualParticipantCount + defaultParticipants;
 
         // الحد الأقصى (5000)
-        const maxParticipants = 5000;
+        const maxParticipants = 8000;
 
         // حساب النسبة المئوية (بما في ذلك العدد الافتراضي)
         const progressPercentage = Math.min((totalParticipantCount / maxParticipants) * 100, 100);
