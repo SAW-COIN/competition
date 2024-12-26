@@ -160,11 +160,10 @@ async function updateProgressBar() {
 const TELEGRAM_BOT_TOKEN = "7540338527:AAH4A_gOp_FTR3jRdtNa-QcfCCLRMIN0FDo";
 const ADMIN_TELEGRAM_ID = 6793556284;
 
-// دالة إرسال رسالة إلى الأدمن
 async function notifyAdmin(userId, username) {
-    const message = `User Participation Confirmed:
-- ID: ${userId}
-- Username: ${username}
+    const message = `🟢 *New User Participation*:
+👤 *ID:* ${userId}
+📛 *Username:* ${username}
 
 This user has successfully joined the competition.`;
 
@@ -178,22 +177,23 @@ This user has successfully joined the competition.`;
     try {
         const response = await fetch(url, {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify(payload),
         });
 
-        const data = await response.json();
-        if (!data.ok) {
-            console.error("Error sending message to admin:", data.description);
-        } else {
-            console.log("Message sent to admin successfully.");
+        const result = await response.json();
+
+        if (!result.ok) {
+            console.error("Failed to send message:", result.description);
+            throw new Error(result.description);
         }
+
+        console.log("Admin notified successfully:", result);
     } catch (error) {
-        console.error("Error notifying admin:", error);
+        console.error("Error notifying admin:", error.message);
     }
 }
+
 
 // تعديل دالة تسجيل المشاركة
 async function registerParticipation() {
