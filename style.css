@@ -181,6 +181,7 @@ body {
 .progress {
     height: 100%;
     width: 0;
+    border-radius: 25px;
     background-color: #2D83EC;
     transition: width 0.5s;
 }
