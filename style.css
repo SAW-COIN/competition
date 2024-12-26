@@ -309,7 +309,7 @@ body {
     justify-content: center;
 }
 
-.userrr-imagee, .balance-icon, .ticket-icon {
+#ton-connect img, .userrr-imagee, .balance-icon, .ticket-icon {
     width: 28px; /* عرض الصورة */
     height: 28px; /* ارتفاع الصورة */
     border-radius: 50%; /* جعل الصورة دائرية */
