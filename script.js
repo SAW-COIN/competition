@@ -127,7 +127,7 @@ async function updateProgressBar() {
         if (error) throw new Error(error.message);
 
         // العدد الافتراضي
-        const defaultParticipants = 1000;
+        const defaultParticipants = 1050;
 
         // العدد الإجمالي (فعلي + افتراضي)
         const actualParticipantCount = data.length;
