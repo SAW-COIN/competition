@@ -1,0 +1,441 @@
+/* إزالة تأثير التركيز */
+button, input, select, textarea, img, a {
+    outline: none;
+    box-shadow: none;
+    border: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* منع سحب الصور */
+img {
+    pointer-events: none;
+}
+
+
+body {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    background-color: #101010;
+    color: #fff;
+}
+
+#participant {
+    font-size: 13px;
+    color: #808080; /* لون ذهبي */
+} 
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+.header-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 20px;
+    margin-top: 20px;
+    margin: 20px auto;
+} 
+
+/* تصغير ارتفاع الهيدر */
+.header {
+    text-align: center;
+    background: linear-gradient(135deg, #2D83EC, #101010);
+    color: white;
+    padding: 10px 20px; /* تقليل المسافات العمودية */
+    border-radius: 20px;
+    margin-top: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+/* النص الصغير أسفل الخلفية */
+.header p {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* قسم الدفع */
+.payment-section {
+    background: linear-gradient(135deg, #2D83EC, #101010);
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    color: white;
+    text-align: center;
+}
+
+.progress-section {
+    background-image: 
+    radial-gradient(circle at 24% 23%, rgba(167, 167, 167,0.06) 0%, rgba(167, 167, 167,0.06) 25%,rgba(148, 148, 148,0.06) 25%, rgba(148, 148, 148,0.06) 50%,rgba(129, 129, 129,0.06) 50%, rgba(129, 129, 129,0.06) 75%,rgba(110, 110, 110,0.06) 75%, rgba(110, 110, 110,0.06) 100%),
+    radial-gradient(circle at 58% 30%, rgba(14, 14, 14,0.06) 0%, rgba(14, 14, 14,0.06) 25%,rgba(60, 60, 60,0.06) 25%, rgba(60, 60, 60,0.06) 50%,rgba(107, 107, 107,0.06) 50%, rgba(107, 107, 107,0.06) 75%,rgba(153, 153, 153,0.06) 75%, rgba(153, 153, 153,0.06) 100%),
+    radial-gradient(circle at 79% 53%, rgba(225, 225, 225,0.06) 0%, rgba(225, 225, 225,0.06) 25%,rgba(189, 189, 189,0.06) 25%, rgba(189, 189, 189,0.06) 50%,rgba(152, 152, 152,0.06) 50%, rgba(152, 152, 152,0.06) 75%,rgba(116, 116, 116,0.06) 75%, rgba(116, 116, 116,0.06) 100%),
+    linear-gradient(221deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3));
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+} 
+
+.additional-section {
+    background-image: 
+    radial-gradient(circle at 24% 23%, rgba(167, 167, 167,0.06) 0%, rgba(167, 167, 167,0.06) 25%,rgba(148, 148, 148,0.06) 25%, rgba(148, 148, 148,0.06) 50%,rgba(129, 129, 129,0.06) 50%, rgba(129, 129, 129,0.06) 75%,rgba(110, 110, 110,0.06) 75%, rgba(110, 110, 110,0.06) 100%),
+    radial-gradient(circle at 58% 30%, rgba(14, 14, 14,0.06) 0%, rgba(14, 14, 14,0.06) 25%,rgba(60, 60, 60,0.06) 25%, rgba(60, 60, 60,0.06) 50%,rgba(107, 107, 107,0.06) 50%, rgba(107, 107, 107,0.06) 75%,rgba(153, 153, 153,0.06) 75%, rgba(153, 153, 153,0.06) 100%),
+    radial-gradient(circle at 79% 53%, rgba(225, 225, 225,0.06) 0%, rgba(225, 225, 225,0.06) 25%,rgba(189, 189, 189,0.06) 25%, rgba(189, 189, 189,0.06) 50%,rgba(152, 152, 152,0.06) 50%, rgba(152, 152, 152,0.06) 75%,rgba(116, 116, 116,0.06) 75%, rgba(116, 116, 116,0.06) 100%),
+    linear-gradient(221deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3));
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+} 
+ 
+.qr-code img {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.wallet-address {
+    font-family: 'Courier New', Courier, monospace; /* خط مخصص للكود */
+    font-size: 14px; /* حجم الخط */
+    font-weight: bold; /* جعل النص عريض */
+    margin: 10px auto;
+}
+
+/* قسم المدخلات */
+.transaction-input {
+    position: relative;
+    margin: 20px auto;
+    max-width: 400px;
+}
+
+.transaction-input input {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 16px;
+    border-radius: 20px;
+    border: 2px solid white;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.transaction-input input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.transaction-input button {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 30%;
+    height: 100%;
+    font-size: 15px;
+    background: #F7F9FB;
+    color: #000;
+    border: none;
+    border-radius: 0 20px 20px 0;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+.transaction-input button:hover {
+    background: #2D83EC;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* شريط التقدم */
+.progress-bar {
+    width: 95%;
+    height: 15px;
+    background-color: #F7F9FB;
+    border-radius: 25px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.progress {
+    height: 100%;
+    width: 0;
+    background-color: #2D83EC;
+    transition: width 0.5s;
+}
+
+/* قسم الشروط والأحكام */
+.terms-section {
+    background: linear-gradient(135deg, #2D83EC, #101010);
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+.terms-section ul {
+    font-size: 14px;
+    color: #fff;
+    margin: 10px 0;
+    padding-left: 20px;
+    list-style: disc;
+    line-height: 1.8;
+}
+
+.footer {
+    text-align: center;
+    background-color: #101010;
+    color: #808080;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-top: 0.5px solid #1a1a1a;
+    margin-top: 20px;
+}
+
+.footer p {
+    margin: 0;
+}
+
+.footer strong {
+    color: #2D83EC;
+    font-weight: 700;
+}
+
+
+/* تصميم البار العلوي الثابت */
+.top-bar {
+    font-size: 13px;
+    font-weight: 500;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    border-radius: 0 0 25px 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.00009);
+    backdrop-filter: blur(5px);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000; /* التأكد من بقاء البار فوق جميع العناصر الأخرى */
+}
+
+.user-name {
+    margin-left: 5px;
+    margin-right: 5px;
+    position: absolute;
+    left: 12px; /* 20px من الجهة اليسرى */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 3px;
+    padding-left: 0;
+    width: auto;
+    height: 25px; 
+    border: 1px solid rgba(255, 255, 255, 0.05); 
+    border-radius: 20px; /* زوايا مستديرة في الأسفل فقط */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.00009);
+    backdrop-filter: blur(5px); 
+}
+
+.user-Balance {
+    margin-left: 5px;
+    margin-right: 5px;
+    position: absolute;
+    left: 105px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 3px;
+    padding-left: 0;
+    width: auto;
+    height: 25px; 
+    border: 1px solid rgba(255, 255, 255, 0.05); 
+    border-radius: 20px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.00009);
+    backdrop-filter: blur(5px); 
+}
+
+#ton-connect button {
+    top: 7px;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 18%;
+    height: 25px; 
+    position: absolute;
+    right: 14px;
+    font-size: 11px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.05); 
+    border-radius: 20px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.00009);
+    backdrop-filter: blur(5px); 
+}  
+
+#ton-connect {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.userrr-imagee, .balance-icon, .ticket-icon {
+    width: 28px; /* عرض الصورة */
+    height: 28px; /* ارتفاع الصورة */
+    border-radius: 50%; /* جعل الصورة دائرية */
+    object-fit: cover; /* تأكد من احتواء الصورة داخل الدائرة */
+    border: 1px solid rgba(255, 255, 255, 0.05); 
+} 
+
+
+/* Winners Section */
+.winners-section {
+    background: linear-gradient(135deg, #2D83EC, #101010);
+    color: white;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.winners-section h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.winners {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+}
+
+.winner {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.winner .position {
+    font-weight: bold;
+    color: #fff; /* لون ذهبي */
+}
+
+.winner .reward {
+    background: linear-gradient(45deg, #2D83EC, #1AC9FF);
+    background-color: transparent;
+    -webkit-background-clip: text; 
+    background-clip: text;
+    color: transparent;
+}
+
+
+/* تصميم الإشعار */
+.notification {
+    position: fixed;
+    top: -100px; /* البداية من فوق الشاشة */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(9px); 
+    padding: 12px 20px;
+    border-radius: 20px;
+    font-size: 13px;
+    z-index: 1000;
+    opacity: 0; /* البداية غير مرئية */
+    width: 280px;
+    max-width: 82%;
+    text-align: left;
+    transition: opacity 0.5s ease, top 0.5s ease;
+}
+
+/* عند تفعيل الإشعار */
+.notification.show {
+    animation: slideDown 0.5s ease-out forwards;
+    opacity: 1;
+}
+
+/* تأثير التحريك من الأعلى */
+@keyframes slideDown {
+    0% {
+        top: -100px;
+        opacity: 0;
+    }
+    100% {
+        top: 14px;
+        opacity: 1;
+    }
+}
+
+/* ألوان النص */
+.notification.success {
+    color: #2D83EC; 
+}
+
+.notification.error {
+    color: #ff0000; 
+}
+
+#payNow {
+    background: #2D83EC; /* اللون الأساسي */
+    border: none; /* إزالة الحدود الافتراضية */
+    color: #fff; /* لون النص */
+    font-size: 16px; /* تحسين حجم الخط */
+    font-weight: bold;
+    height: 50px; 
+    border-radius: 25px; /* زوايا مستديرة أكثر */
+    cursor: pointer;
+    width: 90%; /* جعل الزر بعرض الحاوية */
+    max-width: 320px; /* عرض أقصى للزر */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* ظلال ناعمة */
+    transition: all 0.3s ease-in-out; /* تحسين تأثير التحولات */
+    text-align: center; /* محاذاة النص في الوسط */
+}
+
+
+#payNow:hover {
+    background-color: #1a5aba; /* لون مختلف عند التمرير */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); /* ظلال أكبر عند التمرير */
+    transform: translateY(-3px); /* رفع الزر قليلاً */
+}
+
+#payNow:active {
+    background-color: #14529e; /* لون عند الضغط */
+    transform: translateY(1px); /* إنزال الزر قليلاً */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* ظلال أصغر عند الضغط */
+}
