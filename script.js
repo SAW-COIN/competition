@@ -116,7 +116,7 @@ async function fetchUserBalance(userTelegramId) {
     }
 }
 
-// تحديث شريط التقدم
+// تحديث شريط التقدم مع عدد افتراضي
 async function updateProgressBar() {
     try {
         const { data, error } = await supabase
@@ -126,17 +126,27 @@ async function updateProgressBar() {
 
         if (error) throw new Error(error.message);
 
-        const participantCount = data.length;
+        // العدد الافتراضي
+        const defaultParticipants = 1000;
+
+        // العدد الإجمالي (فعلي + افتراضي)
+        const actualParticipantCount = data.length;
+        const totalParticipantCount = actualParticipantCount + defaultParticipants;
+
+        // الحد الأقصى (5000)
+        const maxParticipants = 5000;
+
+        // حساب النسبة المئوية (بما في ذلك العدد الافتراضي)
+        const progressPercentage = Math.min((totalParticipantCount / maxParticipants) * 100, 100);
 
         // تحديث النص
-        progressText.textContent = `${participantCount} Participants`;
+        progressText.textContent = `${totalParticipantCount} Participants`;
 
         // تحديث عرض شريط التقدم
-        const progressPercentage = Math.min((participantCount / 5000) * 100, 100);
         progressBar.style.width = `${progressPercentage}%`;
 
-        // إخطار عند اكتمال العدد
-        if (participantCount >= 5000) {
+        // إشعار عند اكتمال العدد (5000 بما يشمل الافتراضي)
+        if (totalParticipantCount >= maxParticipants) {
             showNotification("The minimum participants have been reached!", "success");
         }
     } catch (error) {
@@ -144,6 +154,7 @@ async function updateProgressBar() {
         showNotification("Failed to update progress bar.", "error");
     }
 }
+
 
 // معرف البوت الخاص بك (يجب أن تحصل عليه من بوت فاذر)
 const TELEGRAM_BOT_TOKEN = "7540338527:AAH4A_gOp_FTR3jRdtNa-QcfCCLRMIN0FDo";
