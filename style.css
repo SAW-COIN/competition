@@ -286,11 +286,12 @@ body {
     top: 7px;
     margin-left: 5px;
     margin-right: 5px;
-    width: 30%;
+    width: 40%;
     height: 25px; 
     position: absolute;
     right: 14px;
     font-size: 10px;
+    white-space: nowrap;
     display: flex;
     justify-content: space-between;
     align-items: center;
