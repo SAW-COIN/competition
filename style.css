@@ -61,8 +61,8 @@ body {
 
 .header-image {
     position: absolute;
-    bottom: 10px;
-    right: 20px;
+    bottom: 0px;
+    right: 10px;
     width: 150px;
     height: 150px;
     object-fit: cover; /* تكبير الصورة لتغطية المساحة بالكامل */
@@ -81,6 +81,11 @@ body {
     position: relative;
 }
 
+.header h1 {
+    z-index: 7; /* ضمان ظهور النص فوق الصورة */
+    position: relative;
+}
+ 
 .header p {
     z-index: 7;
     font-weight: 500;
