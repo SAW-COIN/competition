@@ -74,7 +74,7 @@ body {
     background: linear-gradient(135deg, #1E3C72, #2A5298, #101010); /* تدرج أعمق وأنيق */
     color: white;
     padding: 10px 20px; /* تقليل المسافات العمودية */
-    border-radius: 20px;
+    border-radius: 30px;
     margin-top: 25px;
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* تأثير أكثر عمقًا */
     position: relative;
@@ -85,7 +85,7 @@ body {
     margin-top: 10px;
     padding: 10px 15px;
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
+    border-radius: 30px;
     font-size: 14px;
     line-height: 1.6;
 }
@@ -95,7 +95,7 @@ body {
     background: linear-gradient(135deg, #2D83EC, #101010);
     padding: 20px;
     margin: 20px 0;
-    border-radius: 20px;
+    border-radius: 30px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     color: white;
     text-align: center;
@@ -111,7 +111,7 @@ body {
     background-position: center;
     padding: 20px;
     margin: 20px 0;
-    border-radius: 20px;
+    border-radius: 30px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 } 
 
@@ -125,7 +125,7 @@ body {
     background-position: center;
     padding: 20px;
     margin: 20px 0;
-    border-radius: 20px;
+    border-radius: 30px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 } 
  
@@ -155,7 +155,7 @@ body {
     width: 100%;
     padding: 15px 20px;
     font-size: 16px;
-    border-radius: 20px;
+    border-radius: 30px;
     border: 2px solid white;
     box-sizing: border-box;
     background: rgba(255, 255, 255, 0.1);
@@ -193,7 +193,7 @@ body {
     width: 95%;
     height: 15px;
     background-color: #F7F9FB;
-    border-radius: 25px;
+    border-radius: 35px;
     overflow: hidden;
     margin: 10px 0;
 }
@@ -201,7 +201,7 @@ body {
 .progress {
     height: 100%;
     width: 0;
-    border-radius: 25px;
+    border-radius: 35px;
     background-color: #2D83EC;
     transition: width 0.5s;
 }
@@ -211,7 +211,7 @@ body {
     background: linear-gradient(135deg, #2D83EC, #101010);
     padding: 20px;
     margin: 20px 0;
-    border-radius: 20px;
+    border-radius: 30px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     color: white;
 }
@@ -255,7 +255,7 @@ body {
     left: 0;
     width: 100%;
     height: 40px;
-    border-radius: 0 0 25px 25px;
+    border-radius: 0 0 30px 30px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     background-color: rgba(255, 255, 255, 0.00009);
     backdrop-filter: blur(5px);
@@ -279,7 +279,7 @@ body {
     width: auto;
     height: 25px; 
     border: 1px solid rgba(255, 255, 255, 0.05); 
-    border-radius: 20px; /* زوايا مستديرة في الأسفل فقط */
+    border-radius: 30px; /* زوايا مستديرة في الأسفل فقط */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     background-color: rgba(255, 255, 255, 0.00009);
     backdrop-filter: blur(5px); 
@@ -298,7 +298,7 @@ body {
     width: auto;
     height: 25px; 
     border: 1px solid rgba(255, 255, 255, 0.05); 
-    border-radius: 20px; 
+    border-radius: 30px; 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     background-color: rgba(255, 255, 255, 0.00009);
     backdrop-filter: blur(5px); 
@@ -318,7 +318,7 @@ body {
     justify-content: space-between;
     align-items: center;
     border: 1px solid rgba(255, 255, 255, 0.05); 
-    border-radius: 20px; 
+    border-radius: 30px; 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     background-color: rgba(255, 255, 255, 0.00009);
     backdrop-filter: blur(5px); 
@@ -346,7 +346,7 @@ body {
     color: white;
     padding: 20px;
     margin: 20px 0;
-    border-radius: 20px;
+    border-radius: 30px;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
@@ -366,7 +366,7 @@ body {
 .winner {
     background: rgba(255, 255, 255, 0.1);
     padding: 15px;
-    border-radius: 20px;
+    border-radius: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -379,7 +379,7 @@ body {
     color: #fff; /* لون ذهبي */
 }
 
-.winner .reward, .vip-Price{
+.winner .reward, .vip-Price {
     background: linear-gradient(45deg, #2D83EC, #1AC9FF);
     background-color: transparent;
     -webkit-background-clip: text; 
@@ -397,7 +397,7 @@ body {
     background-color: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(9px); 
     padding: 12px 20px;
-    border-radius: 20px;
+    border-radius: 30px;
     font-size: 13px;
     z-index: 1000;
     opacity: 0; /* البداية غير مرئية */
@@ -448,7 +448,7 @@ body {
     font-size: 16px; /* تحسين حجم الخط */
     font-weight: bold;
     height: 50px; 
-    border-radius: 25px; /* زوايا مستديرة أكثر */
+    border-radius: 35px; /* زوايا مستديرة أكثر */
     cursor: pointer;
     width: 90%; /* جعل الزر بعرض الحاوية */
     max-width: 320px; /* عرض أقصى للزر */
@@ -482,7 +482,7 @@ body {
     background-position: center;
     padding: 20px;
     margin: 20px 0;
-    border-radius: 20px;
+    border-radius: 30px;
     color: white;
     text-align: center;
 }  
@@ -498,7 +498,7 @@ body {
     background-size: cover;
     background-position: center;
     color: white;
-    border-radius: 25px;
+    border-radius: 30px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: 94%;
     height: 200px; 
@@ -531,7 +531,7 @@ body {
     width: 90%;
     height: 50px; 
     border: none;
-    border-radius: 25px;
+    border-radius: 35px;
     cursor: pointer;
     text-transform: uppercase;
     font-weight: bold;
