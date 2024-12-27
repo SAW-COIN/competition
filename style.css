@@ -28,7 +28,27 @@ body {
     color: #fff;
 }
 
-#participant {
+#Statustxtvip {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 25px;
+    color: #fff; /* لون ذهبي */
+}
+
+#Statustxtprogressvip {
+    margin-left: 25px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    text-align: left;
+    font-size: 13px;
+    color: #808080; 
+} 
+
+#participant, #Statustxtprogress {
+    font-weight: 500;
+    text-align: left;
     font-size: 13px;
     color: #808080; /* لون ذهبي */
 } 
@@ -51,17 +71,17 @@ body {
 /* تصغير ارتفاع الهيدر */
 .header {
     text-align: center;
-    background: linear-gradient(135deg, #2D83EC, #101010);
+    background: linear-gradient(135deg, #1E3C72, #2A5298, #101010); /* تدرج أعمق وأنيق */
     color: white;
     padding: 10px 20px; /* تقليل المسافات العمودية */
     border-radius: 20px;
     margin-top: 25px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* تأثير أكثر عمقًا */
     position: relative;
 }
 
-/* النص الصغير أسفل الخلفية */
 .header p {
+    font-weight: 500;
     margin-top: 10px;
     padding: 10px 15px;
     background: rgba(255, 255, 255, 0.1);
@@ -197,6 +217,7 @@ body {
 }
 
 .terms-section ul {
+    font-weight: 500;
     font-size: 14px;
     color: #fff;
     margin: 10px 0;
@@ -358,7 +379,7 @@ body {
     color: #fff; /* لون ذهبي */
 }
 
-.winner .reward {
+.winner .reward, .vip-Price{
     background: linear-gradient(45deg, #2D83EC, #1AC9FF);
     background-color: transparent;
     -webkit-background-clip: text; 
@@ -414,7 +435,14 @@ body {
 }
 
 #payNow {
-    background: #2D83EC; /* اللون الأساسي */
+    background-image: 
+    radial-gradient(circle at 24% 23%, rgba(167, 167, 167,0.06) 0%, rgba(167, 167, 167,0.06) 25%,rgba(148, 148, 148,0.06) 25%, rgba(148, 148, 148,0.06) 50%,rgba(129, 129, 129,0.06) 50%, rgba(129, 129, 129,0.06) 75%,rgba(110, 110, 110,0.06) 75%, rgba(110, 110, 110,0.06) 100%),
+    radial-gradient(circle at 58% 30%, rgba(14, 14, 14,0.06) 0%, rgba(14, 14, 14,0.06) 25%,rgba(60, 60, 60,0.06) 25%, rgba(60, 60, 60,0.06) 50%,rgba(107, 107, 107,0.06) 50%, rgba(107, 107, 107,0.06) 75%,rgba(153, 153, 153,0.06) 75%, rgba(153, 153, 153,0.06) 100%),
+    radial-gradient(circle at 79% 53%, rgba(225, 225, 225,0.06) 0%, rgba(225, 225, 225,0.06) 25%,rgba(189, 189, 189,0.06) 25%, rgba(189, 189, 189,0.06) 50%,rgba(152, 152, 152,0.06) 50%, rgba(152, 152, 152,0.06) 75%,rgba(116, 116, 116,0.06) 75%, rgba(116, 116, 116,0.06) 100%),
+    linear-gradient(221deg, #101010, #141414);
+    background-size: cover;
+    background-position: center;
+    /*background: #2D83EC;*/ 
     border: none; /* إزالة الحدود الافتراضية */
     color: #fff; /* لون النص */
     font-size: 16px; /* تحسين حجم الخط */
@@ -437,6 +465,89 @@ body {
 }
 
 #payNow:active {
+    background-color: #14529e; /* لون عند الضغط */
+    transform: translateY(1px); /* إنزال الزر قليلاً */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* ظلال أصغر عند الضغط */
+}
+
+
+.vip-section {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-image: 
+    radial-gradient(circle at 24% 23%, rgba(167, 167, 167,0.06) 0%, rgba(167, 167, 167,0.06) 25%,rgba(148, 148, 148,0.06) 25%, rgba(148, 148, 148,0.06) 50%,rgba(129, 129, 129,0.06) 50%, rgba(129, 129, 129,0.06) 75%,rgba(110, 110, 110,0.06) 75%, rgba(110, 110, 110,0.06) 100%),
+    radial-gradient(circle at 58% 30%, rgba(14, 14, 14,0.06) 0%, rgba(14, 14, 14,0.06) 25%,rgba(60, 60, 60,0.06) 25%, rgba(60, 60, 60,0.06) 50%,rgba(107, 107, 107,0.06) 50%, rgba(107, 107, 107,0.06) 75%,rgba(153, 153, 153,0.06) 75%, rgba(153, 153, 153,0.06) 100%),
+    radial-gradient(circle at 79% 53%, rgba(225, 225, 225,0.06) 0%, rgba(225, 225, 225,0.06) 25%,rgba(189, 189, 189,0.06) 25%, rgba(189, 189, 189,0.06) 50%,rgba(152, 152, 152,0.06) 50%, rgba(152, 152, 152,0.06) 75%,rgba(116, 116, 116,0.06) 75%, rgba(116, 116, 116,0.06) 100%),
+    linear-gradient(221deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3));
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 20px;
+    color: white;
+    text-align: center;
+}  
+
+.vip-level {
+    border-bottom: 1px solid #161616; 
+    border-right: 1px solid #161616;
+    background-image: 
+    radial-gradient(circle at 24% 23%, rgba(167, 167, 167,0.06) 0%, rgba(167, 167, 167,0.06) 25%,rgba(148, 148, 148,0.06) 25%, rgba(148, 148, 148,0.06) 50%,rgba(129, 129, 129,0.06) 50%, rgba(129, 129, 129,0.06) 75%,rgba(110, 110, 110,0.06) 75%, rgba(110, 110, 110,0.06) 100%),
+    radial-gradient(circle at 58% 30%, rgba(14, 14, 14,0.06) 0%, rgba(14, 14, 14,0.06) 25%,rgba(60, 60, 60,0.06) 25%, rgba(60, 60, 60,0.06) 50%,rgba(107, 107, 107,0.06) 50%, rgba(107, 107, 107,0.06) 75%,rgba(153, 153, 153,0.06) 75%, rgba(153, 153, 153,0.06) 100%),
+    radial-gradient(circle at 79% 53%, rgba(225, 225, 225,0.06) 0%, rgba(225, 225, 225,0.06) 25%,rgba(189, 189, 189,0.06) 25%, rgba(189, 189, 189,0.06) 50%,rgba(152, 152, 152,0.06) 50%, rgba(152, 152, 152,0.06) 75%,rgba(116, 116, 116,0.06) 75%, rgba(116, 116, 116,0.06) 100%),
+    linear-gradient(221deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3));
+    background-size: cover;
+    background-position: center;
+    color: white;
+    border-radius: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 94%;
+    height: 200px; 
+    padding: 10px;
+    margin: 18px auto; /* التوسيط داخليًا */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+ 
+
+.vip-level h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.vip-features {
+    font-weight: 500;
+    margin-left: 20px;
+    text-align: left;
+    font-size: 13px;
+    color: #808080; /* لون ذهبي */
+} 
+ 
+
+.vip-level button {
+    background-color: #F7F9FB;
+    color: #2D83EC;
+    font-size: 16px;
+    width: 90%;
+    height: 50px; 
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    max-width: 320px; /* عرض أقصى للزر */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* ظلال ناعمة */
+    transition: all 0.3s ease-in-out; /* تحسين تأثير التحولات */
+} 
+
+.vip-level button:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); /* ظلال أكبر عند التمرير */
+    transform: translateY(-3px);
+    background-color: #2D83EC;
+    color: white;
+}
+
+.vip-level button:active {
     background-color: #14529e; /* لون عند الضغط */
     transform: translateY(1px); /* إنزال الزر قليلاً */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* ظلال أصغر عند الضغط */
