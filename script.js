@@ -3,8 +3,10 @@ import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js
 
 const SUPABASE_URL = "https://lnxyjtpnvowbptbonzht.supabase.co";
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxueHlqdHBudm93YnB0Ym9uemh0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwMjg2ODksImV4cCI6MjA0MzYwNDY4OX0.Aznwb14FQvRrOMlsVqzLReFSwuJ66HZ4Y_Tq0Dvm5Is";
-
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+const TELEGRAM_BOT_TOKEN = "7540338527:AAH4A_gOp_FTR3jRdtNa-QcfCCLRMIN0FDo";
+const ADMIN_TELEGRAM_ID = 6793556284;
 
 const paymentSection = document.getElementById("paymentSection");
 const usernameElement = document.getElementById("username");
@@ -74,12 +76,12 @@ async function fetchUserDataFromTelegram() {
 }
 
 
-// تعديل دالة جلب رصيد المستخدم وحالة المشاركة
+// Update user status based on participation
 async function fetchUserBalance(userTelegramId) {
     try {
         const { data, error } = await supabase
             .from("users")
-            .select("balance, is_participating")
+            .select("balance, is_participating, vip_status")
             .eq("telegram_id", userTelegramId)
             .single();
 
@@ -88,21 +90,42 @@ async function fetchUserBalance(userTelegramId) {
         }
 
         if (data) {
-            // تحديث الرصيد
+            // Update balance
             balanceElement.textContent = formatBalance(data.balance);
 
-            // تحديث حالة المشاركة
-            if (data.is_participating) {
-                statusElement.textContent = "Participant";
+            // Update participation status
+            const statusTextElement = document.getElementById("Statustxtprogress");
+
+            if (data.vip_status) {
+                statusElement.textContent = "VIP Participant";
+                statusElement.style.backgroundImage =
+                    "linear-gradient(to right, #FFD700, #8A2BE2)"; // VIP gradient
+                statusElement.style.color = "transparent"; // Hide color to apply gradient
+                statusElement.style.backgroundClip = "text";
+
+                statusTextElement.textContent =
+                    "You're ahead of 80% of all participants! Get ready to win big!";
+               // statusTextElement.style.color = "#FFD700";
+
+                paymentSection.style.display = "none";
+                document.getElementById("vipSection").style.display = "none";
+            } else if (data.is_participating) {
+                statusElement.textContent = "Regular Participant";
                 statusElement.style.color = "#2D83EC";
 
-                // إخفاء قسم الدفع إذا كان المستخدم مشتركًا
+                statusTextElement.textContent =
+                    "You're ahead of 50% of participants! Keep going, your victory is within reach!";
+                //statusTextElement.style.color = "#2D83EC";
+
                 paymentSection.style.display = "none";
             } else {
                 statusElement.textContent = "Not Participated";
                 statusElement.style.color = "red";
 
-                // عرض قسم الدفع إذا لم يكن المستخدم مشتركًا
+                statusTextElement.textContent =
+                    "You have no chances to win! Join now and seize your opportunity!";
+               // statusTextElement.style.color = "red";
+
                 paymentSection.style.display = "block";
             }
         } else {
@@ -115,6 +138,7 @@ async function fetchUserBalance(userTelegramId) {
         showNotification("Failed to fetch user balance.", "error");
     }
 }
+
 
 // تحديث شريط التقدم مع عدد افتراضي
 async function updateProgressBar() {
@@ -156,22 +180,25 @@ async function updateProgressBar() {
 }
 
 
-// معرف البوت الخاص بك (يجب أن تحصل عليه من بوت فاذر)
-const TELEGRAM_BOT_TOKEN = "7540338527:AAH4A_gOp_FTR3jRdtNa-QcfCCLRMIN0FDo";
-const ADMIN_TELEGRAM_ID = 6793556284;
+async function notifyAdmin(userId, username, isVIP = false, amount = 0) {
+    // نص الرسالة كنص عادي
+    let message = `🟢 New Participation:
+👤 ID: ${userId}
+📛 Username: @${username}`;
 
-async function notifyAdmin(userId, username) {
-    const message = `🟢 *New User Participation*:
-👤 *ID:* ${userId}
-📛 *Username:* ${username}
-
-This user has successfully joined the competition.`;
+    if (isVIP) {
+        message += `
+🌟 VIP Status: Yes
+💰 Amount Paid: ${amount} TON`;
+    } else {
+        message += `
+🌟 VIP Status: No`;
+    }
 
     const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
     const payload = {
         chat_id: ADMIN_TELEGRAM_ID,
-        text: message,
-        parse_mode: "Markdown",
+        text: message, // إرسال الرسالة كـ "نص عادي"
     };
 
     try {
@@ -184,7 +211,6 @@ This user has successfully joined the competition.`;
         const result = await response.json();
 
         if (!result.ok) {
-            console.error("Failed to send message:", result.description);
             throw new Error(result.description);
         }
 
@@ -193,7 +219,6 @@ This user has successfully joined the competition.`;
         console.error("Error notifying admin:", error.message);
     }
 }
-
 
 // تعديل دالة تسجيل المشاركة
 async function registerParticipation() {
@@ -210,14 +235,13 @@ async function registerParticipation() {
         if (error) throw new Error(error.message);
 
         // تحديث الحالة
-        statusElement.textContent = "Participant";
+        statusElement.textContent = "Regular Participant";
         statusElement.style.color = "#2D83EC";
 
         // تحديث شريط التقدم
         await updateProgressBar();
 
-        // إخطار الأدمن
-        await notifyAdmin(telegramId, username);
+        await notifyAdmin(telegramId, username, false);
 
         showNotification("Participation confirmed successfully!", "success");
     } catch (error) {
@@ -288,5 +312,68 @@ async function makePayment() {
 // ربط الأزرار بالأحداث
 document.getElementById("ton-connect").addEventListener("click", connectToWallet);
 document.getElementById("payNow").addEventListener("click", makePayment);
+
+
+
+// عرض مستويات VIP في الواجهة
+function renderVIPLevels() {
+    const vipLevels = [
+        { id: 1, name: "VIP Silver", price: 10, features: "Basic perks and increased chances." },
+        { id: 2, name: "VIP Gold", price: 30, features: "Enhanced perks and increased chances." },
+        { id: 3, name: "VIP Platinum", price: 50, features: "Premium perks and maximum chances." },
+    ];
+
+    const vipSection = document.getElementById("vipSection");
+    vipSection.innerHTML = vipLevels.map(level => `
+        <div class="vip-level">
+            <h3>${level.name}</h3>
+            <p class="vip-Price"> Price : ${level.price} TON</p>
+            <button onclick="subscribeVIP(${level.price})">Subscribe</button>
+            <p class="vip-features">Features: ${level.features}</p>
+        </div>
+    `).join("");
+}
+
+window.subscribeVIP = async function (price) {
+    const telegramApp = window.Telegram.WebApp;
+    const telegramId = telegramApp.initDataUnsafe.user?.id;
+    const username = telegramApp.initDataUnsafe.user?.username || `user_${telegramId}`;
+
+    try {
+        // الدفع عبر المحفظة
+        const transaction = {
+            validUntil: Math.floor(Date.now() / 1000) + 600,
+            messages: [
+                {
+                    address: "UQBOBIEGLWuaMNLBy3HTaYU-F-3Py8q7o0kGw7S_2vLxRmqr",
+                    amount: (price * 1_000_000_000).toString(), 
+                },
+            ],
+        };
+
+        await tonConnectUI.sendTransaction(transaction);
+
+        // تحديث حالة VIP في قاعدة البيانات
+        const { error } = await supabase
+            .from("users")
+            .update({ vip_status: true })
+            .eq("telegram_id", telegramId);
+
+        if (error) throw new Error(error.message);
+
+        // إخطار الأدمن بحالة VIP مع المبلغ المدفوع
+        await notifyAdmin(telegramId, username, true, price);
+
+        showNotification("VIP subscription successful!", "success");
+    } catch (error) {
+        console.error("Error subscribing to VIP:", error);
+        showNotification(`VIP subscription failed: ${error.message}`, "error");
+    }
+};
+
+
+// عرض مستويات VIP عند تحميل الصفحة
+document.addEventListener("DOMContentLoaded", renderVIPLevels);
+
 
 
