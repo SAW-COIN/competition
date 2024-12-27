@@ -61,10 +61,10 @@ body {
 
 .header-image {
     position: absolute;
-    bottom: 0px;
-    right: 1px;
-    width: 150px;
-    height: 150px;
+    bottom: 0;
+    right: 0;
+    width: 130px;
+    height: 130px;
    /* object-fit: cover;*/ /* تكبير الصورة لتغطية المساحة بالكامل */
     z-index: 6; /* التأكد من أن الصورة في الخلف */
 } 
@@ -87,6 +87,7 @@ body {
 }
  
 .header p {
+    position: relative;
     z-index: 10;
     font-weight: 500;
     margin-top: 10px;
