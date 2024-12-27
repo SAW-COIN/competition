@@ -62,7 +62,7 @@ body {
 .header-image {
     position: absolute;
     bottom: 0px;
-    right: 10px;
+    right: 1px;
     width: 150px;
     height: 150px;
    /* object-fit: cover;*/ /* تكبير الصورة لتغطية المساحة بالكامل */
