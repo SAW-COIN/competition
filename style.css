@@ -65,6 +65,7 @@ body {
     right: 0;
     width: 130px;
     height: 130px;
+    object-fit: contain;
    /* object-fit: cover;*/ /* تكبير الصورة لتغطية المساحة بالكامل */
     z-index: 6; /* التأكد من أن الصورة في الخلف */
 } 
