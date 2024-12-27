@@ -70,7 +70,7 @@ body {
 } 
 /* تصغير ارتفاع الهيدر */
 .header {
-    z-index: 5; 
+    /*z-index: 5;*/
     text-align: center;
     background: linear-gradient(135deg, #1E3C72, #2A5298, #101010); /* تدرج أعمق وأنيق */
     color: white;
