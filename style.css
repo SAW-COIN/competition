@@ -65,7 +65,7 @@ body {
     right: 10px;
     width: 150px;
     height: 150px;
-    object-fit: cover; /* تكبير الصورة لتغطية المساحة بالكامل */
+   /* object-fit: cover;*/ /* تكبير الصورة لتغطية المساحة بالكامل */
     z-index: 6; /* التأكد من أن الصورة في الخلف */
 } 
 /* تصغير ارتفاع الهيدر */
@@ -87,7 +87,7 @@ body {
 }
  
 .header p {
-    z-index: 7;
+    z-index: 10;
     font-weight: 500;
     margin-top: 10px;
     padding: 10px 15px;
