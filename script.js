@@ -143,34 +143,45 @@ async function fetchUserBalance(userTelegramId) {
 // تحديث شريط التقدم مع عدد افتراضي
 async function updateProgressBar() {
     try {
-        const { data, error } = await supabase
+        // استعلام لجمع المشاركين العاديين
+        const { data: regularParticipants, error: regularError } = await supabase
             .from("users")
             .select("*")
             .eq("is_participating", true);
 
-        if (error) throw new Error(error.message);
+        if (regularError) throw new Error(regularError.message);
+
+        // استعلام لجمع المشاركين الـ VIP
+        const { data: vipParticipants, error: vipError } = await supabase
+            .from("users")
+            .select("*")
+            .eq("vip_status", true);
+
+        if (vipError) throw new Error(vipError.message);
 
         // العدد الافتراضي
         const defaultParticipants = 1050;
 
-        // العدد الإجمالي (فعلي + افتراضي)
-        const actualParticipantCount = data.length;
-        const totalParticipantCount = actualParticipantCount + defaultParticipants;
+        // حساب العدد الإجمالي
+        const totalParticipants = 
+            regularParticipants.length + 
+            (vipParticipants.length * 5) + // كل VIP = 5 أشخاص
+            defaultParticipants;
 
-        // الحد الأقصى (5000)
+        // الحد الأقصى (8000)
         const maxParticipants = 8000;
 
-        // حساب النسبة المئوية (بما في ذلك العدد الافتراضي)
-        const progressPercentage = Math.min((totalParticipantCount / maxParticipants) * 100, 100);
+        // حساب النسبة المئوية
+        const progressPercentage = Math.min((totalParticipants / maxParticipants) * 100, 100);
 
         // تحديث النص
-        progressText.textContent = `${totalParticipantCount} Participants`;
+        progressText.textContent = `${totalParticipants} Participants`;
 
         // تحديث عرض شريط التقدم
         progressBar.style.width = `${progressPercentage}%`;
 
-        // إشعار عند اكتمال العدد (5000 بما يشمل الافتراضي)
-        if (totalParticipantCount >= maxParticipants) {
+        // إشعار عند اكتمال العدد
+        if (totalParticipants >= maxParticipants) {
             showNotification("The minimum participants have been reached!", "success");
         }
     } catch (error) {
