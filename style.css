@@ -450,7 +450,7 @@ body {
     linear-gradient(221deg, #101010, #141414);
     background-size: cover;
     background-position: center;
-    border-bottom: 5px solid #151515;
+    border-bottom: 5px solid #141414;
     border: none; /* إزالة الحدود الافتراضية */
     color: #fff; /* لون النص */
     font-size: 16px; /* تحسين حجم الخط */
