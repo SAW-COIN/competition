@@ -336,6 +336,8 @@ function renderVIPLevels() {
 
     const vipSection = document.getElementById("vipSection");
     vipSection.innerHTML = vipLevels.map(level => `
+    <p id="Statustxtvip"> Get more chances to win  </p>
+      <p id="Statustxtprogressvip"> VIP subscriptions allow you to increase your chances of winning the weekly lottery </p>
         <div class="vip-level">
             <h3>${level.name}</h3>
             <p class="vip-Price"> Price : ${level.price} TON</p>
