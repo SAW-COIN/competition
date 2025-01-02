@@ -261,10 +261,7 @@ async function updateProgressBar() {
 }
 
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
-//import { SUPABASE_URL, SUPABASE_ANON_KEY } from './Scripts/config.js';
-const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_KEY;
-
+import { SUPABASE_URL, SUPABASE_ANON_KEY } from './Scripts/config.js';
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 async function notifyAdmin(userId, username, isVIP = false, amount = 0) {
