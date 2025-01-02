@@ -261,7 +261,9 @@ async function updateProgressBar() {
 }
 
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
-import { SUPABASE_URL, SUPABASE_ANON_KEY } from './Scripts/config.js';
+//import { SUPABASE_URL, SUPABASE_ANON_KEY } from './Scripts/config.js';
+const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_KEY;
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
