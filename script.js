@@ -1,1 +1,470 @@
-const n=b;(function(c,d){const m=b,e=c();while(!![]){try{const f=parseInt(m(0xb9))/(-0x1*-0x25e+0x1537+-0x1794)*(-parseInt(m(0xd4))/(-0x12e8+-0x12*0x1c6+0x1b*0x1e2))+parseInt(m(0x99))/(-0x1df9*-0x1+-0x1804+-0x5f2)*(parseInt(m(0xd1))/(0x2316+-0x3c9+-0x1f49))+parseInt(m(0x90))/(-0x1cf8+0x14*0x97+0x1131)+parseInt(m(0x92))/(-0x3*-0x755+0x9*0x17+-0x16c8)+-parseInt(m(0xce))/(-0x1bcb+-0x4e0+-0x10e*-0x1f)+parseInt(m(0xd2))/(-0x1e25*0x1+0x67e*0x2+0x1131)+-parseInt(m(0x8d))/(0x1386+0x247+-0xae2*0x2);if(f===d)break;else e['push'](e['shift']());}catch(g){e['push'](e['shift']());}}}(a,-0xae2*0x97+0x197fb+-0xea5*-0xd1));const TELEGRAM_BOT_TOKEN=n(0xcc),ADMIN_TELEGRAM_ID=-0x1*0x2ccb9fa3+0x20b32a34a+-0x4979926b,paymentSection=document[n(0xc3)](n(0xe6)),usernameElement=document[n(0xc3)](n(0xa7)),balanceElement=document[n(0xc3)](n(0xd7)),statusElement=document[n(0xc3)](n(0xf1)),progressBar=document[n(0xc3)](n(0xf9)),progressText=document[n(0xc3)](n(0xaf)),notification=document['createElement'](n(0xd8));notification[n(0xd9)]=n(0xa5),document[n(0xa2)][n(0x98)](notification);function showNotification(c,d=n(0xf2)){const o=n;notification[o(0xfe)]=c,notification[o(0xd9)]=o(0xb5)+d+o(0xb2),setTimeout(()=>{const p=o;notification[p(0xd9)]=p(0xa5);},-0xe81+-0x2154+-0x5*-0xbe9);}function formatUsername(c){const q=n,d=0x59f*0x1+-0x988*0x4+0xb5*0x2e;return c[q(0x103)]>d?c[q(0xcf)](-0xe*0x6d+0x16e2+-0x10ec,d)+q(0xab):c;}function formatBalance(c){const r=n;if(c>=0x156b5b7da99+0x25*-0xc78a774b5+-0x189*-0xe5016310)return(c/(-0x1*0x16932a20622+0x23de386*0x92ad+-0xf76*-0x11276f3e))[r(0x88)](0x1394+-0x57c+0x3*-0x4b2)+'T';else{if(c>=-0x6b28db7+-0x7261bd69+0x2fbc2*0x3c90)return(c/(0x2*-0xf77c779+0x4386c32d+-0x9*-0x28e9edd))['toFixed'](-0x1245+0x17df+-0x598)+'B';else{if(c>=0x1*-0x1b2e55+0x159a7*-0xb+0x394ac2*0x1)return(c/(-0x192c7a+0xd7127+0x1afd93))[r(0x88)](-0x789*-0x1+-0x2627+-0x8c*-0x38)+'M';else{if(c>=0x1*0xc77+-0x13*-0x20+0x3a5*-0x3)return(c/(0xce*0x1e+0x11*0x38+0x3*-0x7fc))[r(0x88)](-0x15ea+-0x5f6+0x1be2)+'K';}}}return c[r(0x8e)]();}async function loginUser(c){const s=n,d=c+'@sawtoken.coin',e=s(0x8b)+c;try{const {data:f,error:g}=await supabase[s(0xb8)]['signInWithPassword']({'email':d,'password':e});if(g){console[s(0x93)](s(0x101));const {data:h,error:i}=await supabase[s(0xb8)]['signUp']({'email':d,'password':e});if(i)throw new Error(s(0x80)+i[s(0xc9)]);console[s(0x93)](s(0xbd),h[s(0x96)]['id']);const {error:j}=await supabase['from'](s(0x7f))['insert']({'telegram_id':c,'telegram_uuid':h[s(0x96)]['id'],'is_participating':![],'vip_status':![]});if(j)throw new Error(s(0xe9)+j[s(0xc9)]);return h[s(0x96)];}return console['log']('User\x20logged\x20in\x20successfully:',f[s(0x96)]),f[s(0x96)];}catch(k){console[s(0xf2)](s(0xb4),k['message']);throw k;}}async function fetchUserDataFromTelegram(){const t=n;try{const c=window[t(0xc7)]['WebApp'];c[t(0xa1)]();const d=c[t(0xd6)]['user']?.['id'];if(!d)throw new Error(t(0x94));const e=c[t(0xd6)][t(0x96)]?.[t(0xa7)]||'user_'+d;usernameElement[t(0xfe)]=formatUsername(e);const f=await loginUser(d),{data:g,error:h}=await supabase[t(0xb0)](t(0x7f))[t(0xe7)]('*')['eq'](t(0xb6),d)[t(0xaa)]();if(h)throw new Error('Error\x20fetching\x20user\x20data:\x20'+h['message']);if(!g){console['log']('No\x20user\x20data\x20found\x20in\x20database.\x20Adding\x20user.');const {error:i}=await supabase[t(0xb0)]('users')[t(0xdd)]({'telegram_id':d,'telegram_uuid':f['id'],'is_participating':![],'vip_status':![]});if(i)throw new Error(t(0xdb)+i[t(0xc9)]);}await fetchUserBalance(d),await updateProgressBar();}catch(j){console[t(0xf2)](t(0x9d),j[t(0xc9)]),showNotification(j[t(0xc9)]||t(0x9e),t(0xf2));}}async function fetchUserBalance(c){const u=n;try{const {data:d,error:e}=await supabase[u(0xb0)](u(0x7f))[u(0xe7)](u(0xfd))['eq'](u(0xb6),c)[u(0xd3)]();if(e)throw new Error(e[u(0xc9)]);if(d){balanceElement[u(0xfe)]=formatBalance(d[u(0xd7)]);const f=document[u(0xc3)](u(0x85));if(d[u(0xe1)])statusElement[u(0xfe)]=u(0xc4),statusElement[u(0x9f)][u(0xe2)]='linear-gradient(to\x20right,\x20#FFD700,\x20#8A2BE2)',statusElement[u(0x9f)][u(0xe0)]=u(0xc0),statusElement[u(0x9f)]['backgroundClip']=u(0x97),f['textContent']=u(0x9a),paymentSection[u(0x9f)][u(0x9c)]=u(0x83),document['getElementById'](u(0xbe))['style'][u(0x9c)]=u(0x83);else d[u(0xff)]?(statusElement[u(0xfe)]=u(0xad),statusElement[u(0x9f)][u(0xe0)]='#2D83EC',f[u(0xfe)]='You\x27re\x20ahead\x20of\x2050%\x20of\x20participants!\x20Keep\x20going,\x20your\x20victory\x20is\x20within\x20reach!',paymentSection[u(0x9f)][u(0x9c)]=u(0x83)):(statusElement[u(0xfe)]='Not\x20Participated',statusElement['style'][u(0xe0)]=u(0x105),f['textContent']='You\x20have\x20no\x20chances\x20to\x20win!\x20Join\x20now\x20and\x20seize\x20your\x20opportunity!',paymentSection['style']['display']=u(0xbf));}else balanceElement[u(0xfe)]='0',showNotification('No\x20balance\x20found\x20for\x20this\x20user.','error');}catch(g){console['error'](u(0xba),g),balanceElement[u(0xfe)]=u(0xeb),showNotification(u(0x7d),u(0xf2));}}async function updateProgressBar(){const v=n;try{const {data:c,error:d}=await supabase[v(0xb0)](v(0x7f))[v(0xe7)]('*')['eq'](v(0xff),!![]);if(d)throw new Error(d[v(0xc9)]);const {data:e,error:f}=await supabase[v(0xb0)](v(0x7f))[v(0xe7)]('*')['eq'](v(0xe1),!![]);if(f)throw new Error(f['message']);const g=-0x15*0x16d+0x1*-0x2141+0xec*0x49,h=c[v(0x103)]+e[v(0x103)]*(-0xcaa*0x2+-0x1911+-0x9*-0x59a)+g,i=-0x170b+0xc5f*0x4+0x1*0x4cf,j=Math['min'](h/ i*(0x1be9*-0x1+-0x2390+0x3fdd*0x1),0x19a*0x2+0x53d+0x9*-0xe5);progressText[v(0xfe)]=h+v(0xf7),progressBar[v(0x9f)][v(0xc1)]=j+'%',h>=i&&showNotification(v(0x82),v(0xf6));}catch(k){console[v(0xf2)](v(0xb1),k),showNotification(v(0xfb),'error');}}import{createClient}from'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';import{SUPABASE_URL,SUPABASE_ANON_KEY}from'./Scripts/config.js';function b(c,d){const e=a();return b=function(f,g){f=f-(-0x1e4a+-0x1551+0x3418);let h=e[f];return h;},b(c,d);}function a(){const C=['/sendMessage','notification','map','username','#101010','\x0a\x0a🌟\x20VIP\x20Status:\x20No','maybeSingle','...','name','Regular\x20Participant','https://api.telegram.org/bot','participantCount','from','Error\x20updating\x20progress\x20bar:','\x20show','VIP\x20subscription\x20successful!','Error\x20logging\x20in\x20or\x20registering\x20user:','notification\x20','telegram_id','stringify','auth','5360ThvQaf','Error\x20fetching\x20user\x20balance:','The\x20operation\x20was\x20completed\x20successfully','Payment\x20failed:\x20','New\x20user\x20created\x20successfully:','vipSection','block','transparent','width','click','getElementById','VIP\x20Participant','Error\x20making\x20payment:','update','Telegram','user_','message','application/json','VIP\x20Platinum','7540338527:AAH4A_gOp_FTR3jRdtNa-QcfCCLRMIN0FDo',')\x22>Subscribe</button>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22vip-features\x22>Features:\x20','3671038uobjug','slice','https://t.me/SAWCOIN_BOT/GAME','20udAjwS','6451336hWLQjp','single','132bBALIt','Error\x20notifying\x20admin:','initDataUnsafe','balance','div','className','VIP\x20subscription\x20failed:\x20','Failed\x20to\x20insert\x20user\x20data:\x20','Enhanced\x20perks\x20and\x20increased\x20chances.','insert','addEventListener','Authentication\x20failed.\x20User\x20is\x20not\x20logged\x20in.','color','vip_status','backgroundImage','sendTransaction','UQBOBIEGLWuaMNLBy3HTaYU-F-3Py8q7o0kGw7S_2vLxRmqr','\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p\x20id=\x22Statustxtvip\x22>\x20Get\x20more\x20chances\x20to\x20win\x20</p>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p\x20id=\x22Statustxtprogressvip\x22>\x20VIP\x20subscriptions\x20allow\x20you\x20to\x20increase\x20your\x20chances\x20of\x20winning\x20the\x20weekly\x20lottery\x20</p>\x0a\x0a\x20\x20\x20\x20','paymentSection','select','DOMContentLoaded','Failed\x20to\x20insert\x20user\x20in\x20database:\x20','POST','Error','description','uiOptions','Admin\x20notified\x20successfully:','Failed\x20to\x20register\x20participation.','payNow','participationStatus','error','wallet','VIP\x20Gold','Basic\x20perks\x20and\x20increased\x20chances.','success','\x20Participants','info','progress','WebApp','Failed\x20to\x20update\x20progress\x20bar.','TonConnectUI','balance,\x20is_participating,\x20vip_status','textContent','is_participating','VIP\x20Silver','User\x20not\x20found\x20in\x20auth\x20system.\x20Creating\x20a\x20new\x20account.','\x0a\x0a🌟\x20VIP\x20Status:\x20Yes\x0a\x0a💰\x20Amount\x20Paid:\x20','length','now','red','Failed\x20to\x20fetch\x20user\x20balance.','https://sawcoin.vercel.app/json/tonconnect-manifest.json','users','Failed\x20to\x20register\x20user:\x20','Failed\x20to\x20connect\x20wallet.','The\x20minimum\x20participants\x20have\x20been\x20reached!','none','ton-connect','Statustxtprogress','Wallet\x20connected\x20successfully','Error\x20subscribing\x20to\x20VIP:','toFixed','\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22vip-level\x22>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3>','</p>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20','password_','Error\x20updating\x20participation:','3366531yNkcdb','toString','innerHTML','837380XpIKel','🟢\x20New\x20Participation:\x0a\x0a👤\x20ID:\x20','2494938eIcgch','log','Telegram\x20user\x20ID\x20is\x20missing','\x20TON','user','text','appendChild','197901taELAl','You\x27re\x20ahead\x20of\x2080%\x20of\x20all\x20participants!\x20Get\x20ready\x20to\x20win\x20big!','Premium\x20perks\x20and\x20maximum\x20chances.','display','Error\x20fetching\x20Telegram\x20data:','Failed\x20to\x20fetch\x20Telegram\x20data','style','floor','ready','body','\x0a\x0a📛\x20Username:\x20@'];a=function(){return C;};return a();}const supabase=createClient(SUPABASE_URL,SUPABASE_ANON_KEY);async function notifyAdmin(c,d,e=![],f=-0xb36+-0x244d*-0x1+0x85d*-0x3){const w=n;let g=w(0x91)+c+w(0xa3)+d;e?g+=w(0x102)+f+w(0x95):g+=w(0xa9);const h=w(0xae)+TELEGRAM_BOT_TOKEN+w(0xa4),i={'chat_id':ADMIN_TELEGRAM_ID,'text':g};try{const j=await fetch(h,{'method':w(0xea),'headers':{'Content-Type':w(0xca)},'body':JSON[w(0xb7)](i)}),k=await j['json']();if(!k['ok'])throw new Error(k[w(0xec)]);console[w(0x93)](w(0xee),k);}catch(l){console[w(0xf2)](w(0xd5),l[w(0xc9)]);}}async function registerParticipation(){const x=n,c=window[x(0xc7)]['WebApp'],d=c['initDataUnsafe'][x(0x96)]?.['id'],e=c[x(0xd6)][x(0x96)]?.['username']||x(0xc8)+d;try{const {data:f,error:g}=await supabase[x(0xb8)]['getUser']();if(g||!f)throw new Error(x(0xdf));const {data:h,error:i}=await supabase[x(0xb0)]('users')[x(0xc6)]({'is_participating':!![]})['eq'](x(0xb6),d);if(i)throw new Error(i[x(0xc9)]);statusElement['textContent']=x(0xad),statusElement[x(0x9f)][x(0xe0)]='#2D83EC',await updateProgressBar(),await notifyAdmin(d,e,![]),showNotification('Participation\x20confirmed\x20successfully!',x(0xf6));}catch(j){console[x(0xf2)](x(0x8c),j),showNotification(x(0xef),x(0xf2));}}window['Telegram'][n(0xfa)]['setHeaderColor'](n(0xa8)),document[n(0xde)](n(0xe8),fetchUserDataFromTelegram);const tonConnectUI=new TON_CONNECT_UI[(n(0xfc))]({'manifestUrl':n(0x7e),'buttonRootId':n(0x84)});async function connectToWallet(){const y=n;try{const c=tonConnectUI[y(0xf3)]!==null;if(c){showNotification('Wallet\x20is\x20already\x20connected.',y(0xf8));return;}const d=await tonConnectUI['connectWallet']();console[y(0x93)](d),showNotification(y(0x86),'success');}catch(e){console[y(0xf2)]('Error\x20connecting\x20wallet:',e),showNotification(y(0x81),y(0xf2));}}tonConnectUI[n(0xed)]={'twaReturnUrl':n(0xd0)};async function makePayment(){const z=n;try{const c='1000000',d=z(0xe4),e={'validUntil':Math[z(0xa0)](Date[z(0x104)]()/(-0x1a78+0x329+0x1b37))+(0x1*0x1472+-0x1*-0x2129+-0x3343),'messages':[{'address':d,'amount':c}]};await tonConnectUI[z(0xe3)](e),showNotification(z(0xbb),z(0xf6)),await registerParticipation();}catch(f){console['error'](z(0xc5),f),showNotification(z(0xbc)+f[z(0xc9)],z(0xf2));}}document[n(0xc3)](n(0x84))[n(0xde)](n(0xc2),connectToWallet),document[n(0xc3)](n(0xf0))[n(0xde)](n(0xc2),makePayment);function renderVIPLevels(){const A=n,c=[{'id':0x1,'name':A(0x100),'price':0xa,'features':A(0xf5)},{'id':0x2,'name':A(0xf4),'price':0x1e,'features':A(0xdc)},{'id':0x3,'name':A(0xcb),'price':0x32,'features':A(0x9b)}],d=document['getElementById'](A(0xbe));d[A(0x8f)]=A(0xe5),d['innerHTML']+=c[A(0xa6)](e=>A(0x89)+e[A(0xac)]+'</h3>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22vip-Price\x22>\x20Price\x20:\x20'+e['price']+'\x20TON</p>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22subscribeVIP('+e['price']+A(0xcd)+e['features']+A(0x8a))['join']('');}window['subscribeVIP']=async function(c){const B=n,d=window[B(0xc7)]['WebApp'],e=d[B(0xd6)][B(0x96)]?.['id'],f=d[B(0xd6)][B(0x96)]?.[B(0xa7)]||B(0xc8)+e;try{const g={'validUntil':Math[B(0xa0)](Date[B(0x104)]()/(-0x133+0x170b+0x38*-0x52))+(-0x1736+0x6*-0x2b3+0x29c0),'messages':[{'address':B(0xe4),'amount':(c*(0x772055e5+0x2f5a9f9a*0x2+-0x20dd*0x4b16d))[B(0x8e)]()}]};await tonConnectUI[B(0xe3)](g);const {error:h}=await supabase[B(0xb0)](B(0x7f))['update']({'vip_status':!![]})['eq']('telegram_id',e);if(h)throw new Error(h[B(0xc9)]);await notifyAdmin(e,f,!![],c),showNotification(B(0xb3),B(0xf6));}catch(i){console[B(0xf2)](B(0x87),i),showNotification(B(0xda)+i[B(0xc9)],B(0xf2));}},document[n(0xde)]('DOMContentLoaded',renderVIPLevels);
+// استخدام Supabase مع import
+const TELEGRAM_BOT_TOKEN = "7540338527:AAH4A_gOp_FTR3jRdtNa-QcfCCLRMIN0FDo";
+const ADMIN_TELEGRAM_ID = 6793556284;
+
+const paymentSection = document.getElementById("paymentSection");
+const usernameElement = document.getElementById("username");
+const balanceElement = document.getElementById("balance");
+const statusElement = document.getElementById("participationStatus");
+const progressBar = document.getElementById("progress");
+const progressText = document.getElementById("participantCount");
+
+// إنشاء عنصر الإشعار
+const notification = document.createElement("div");
+notification.className = "notification";
+document.body.appendChild(notification);
+
+// دالة عرض الإشعار
+function showNotification(message, type = "error") {
+    notification.textContent = message;
+    notification.className = `notification ${type} show`;
+
+    setTimeout(() => {
+        notification.className = "notification"; // إعادة الإشعار للوضع الافتراضي
+    }, 3000);
+}
+
+// مساعد لتنسيق اسم المستخدم
+function formatUsername(username) {
+    const maxLength = 5;
+    return username.length > maxLength ? username.slice(0, maxLength) + "..." : username;
+}
+
+// مساعد لتنسيق الرصيد
+function formatBalance(balance) {
+    if (balance >= 1_000_000_000_000) {
+        return (balance / 1_000_000_000_000).toFixed(2) + "T";
+    } else if (balance >= 1_000_000_000) {
+        return (balance / 1_000_000_000).toFixed(2) + "B";
+    } else if (balance >= 1_000_000) {
+        return (balance / 1_000_000).toFixed(2) + "M";
+    } else if (balance >= 1_000) {
+        return (balance / 1_000).toFixed(2) + "K";
+    }
+    return balance.toString();
+}
+
+async function loginUser(telegramId) {
+    const email = `${telegramId}@SawToken.coin`;
+    const password = `password_${telegramId}`;
+
+    try {
+        // محاولة تسجيل الدخول
+        const { data: loginData, error: loginError } = await supabase.auth.signInWithPassword({
+            email,
+            password,
+        });
+
+        // إذا لم يكن المستخدم موجودًا في المصادقة
+        if (loginError) {
+            console.log("User not found in auth system. Creating a new account.");
+
+            // تسجيل مستخدم جديد في المصادقة
+            const { data: signUpData, error: signUpError } = await supabase.auth.signUp({
+                email,
+                password,
+            });
+
+            if (signUpError) {
+                throw new Error(`Failed to register user: ${signUpError.message}`);
+            }
+
+            console.log("New user created successfully:", signUpData.user.id);
+            return { telegramId, email };
+        }
+
+        console.log("User logged in successfully:", loginData.user);
+        return { telegramId, email };
+    } catch (error) {
+        console.error("Error logging in or registering user:", error.message);
+        throw error;
+    }
+}
+
+async function addUserToDatabase(telegramId, email) {
+    try {
+        // التحقق من وجود المستخدم في جدول `users`
+        const { data: userData, error: userError } = await supabase
+            .from("users")
+            .select("*")
+            .eq("telegram_id", telegramId)
+            .maybeSingle();
+
+        if (userError) {
+            throw new Error(`Error fetching user data: ${userError.message}`);
+        }
+
+        // إذا لم يكن المستخدم موجودًا في الجدول
+        if (!userData) {
+            console.log("No user data found in database. Adding user.");
+            const { error: insertError } = await supabase
+                .from("users")
+                .insert({
+                    telegram_id: telegramId,
+                    email,
+                    is_participating: false,
+                    vip_status: false,
+                });
+
+            if (insertError) {
+                throw new Error(`Failed to insert user data: ${insertError.message}`);
+            }
+        }
+    } catch (error) {
+        console.error("Error adding user to database:", error.message);
+        throw error;
+    }
+}
+
+async function fetchUserDataFromTelegram() {
+    try {
+        const telegramApp = window.Telegram.WebApp;
+        telegramApp.ready();
+
+        const userTelegramId = telegramApp.initDataUnsafe.user?.id;
+        if (!userTelegramId) {
+            throw new Error("Telegram user ID is missing");
+        }
+
+        const userTelegramName = telegramApp.initDataUnsafe.user?.username || `user_${userTelegramId}`;
+        usernameElement.textContent = formatUsername(userTelegramName);
+
+        // إنشاء البريد الإلكتروني بناءً على Telegram ID
+        const email = `${userTelegramId}@SawToken.coin`;
+
+        // تسجيل الدخول أو التسجيل
+        const authUser = await loginUser(userTelegramId);
+
+        // التأكد من إدخال المستخدم في جدول `users`
+        await addUserToDatabase(userTelegramId, email);
+
+        await fetchUserBalance(userTelegramId);
+        await updateProgressBar();
+    } catch (error) {
+        console.error("Error fetching Telegram data:", error.message);
+        showNotification(error.message || "Failed to fetch Telegram data", "error");
+    }
+}
+
+// Update user status based on participation
+async function fetchUserBalance(userTelegramId) {
+    try {
+        const { data, error } = await supabase
+            .from("users")
+            .select("balance, is_participating, vip_status")
+            .eq("telegram_id", userTelegramId)
+            .single();
+
+        if (error) {
+            throw new Error(error.message);
+        }
+
+        if (data) {
+            // Update balance
+            balanceElement.textContent = formatBalance(data.balance);
+
+            // Update participation status
+            const statusTextElement = document.getElementById("Statustxtprogress");
+
+            if (data.vip_status) {
+                statusElement.textContent = "VIP Participant";
+                statusElement.style.backgroundImage =
+                    "linear-gradient(to right, #FFD700, #8A2BE2)"; // VIP gradient
+                statusElement.style.color = "transparent"; // Hide color to apply gradient
+                statusElement.style.backgroundClip = "text";
+
+                statusTextElement.textContent =
+                    "You're ahead of 80% of all participants! Get ready to win big!";
+               // statusTextElement.style.color = "#FFD700";
+
+                paymentSection.style.display = "none";
+                document.getElementById("vipSection").style.display = "none";
+            } else if (data.is_participating) {
+                statusElement.textContent = "Regular Participant";
+                statusElement.style.color = "#2D83EC";
+
+                statusTextElement.textContent =
+                    "You're ahead of 50% of participants! Keep going, your victory is within reach!";
+                //statusTextElement.style.color = "#2D83EC";
+
+                paymentSection.style.display = "none";
+            } else {
+                statusElement.textContent = "Not Participated";
+                statusElement.style.color = "red";
+
+                statusTextElement.textContent =
+                    "You have no chances to win! Join now and seize your opportunity!";
+               // statusTextElement.style.color = "red";
+
+                paymentSection.style.display = "block";
+            }
+        } else {
+            balanceElement.textContent = "0";
+            showNotification("No balance found for this user.", "error");
+        }
+    } catch (error) {
+        console.error("Error fetching user balance:", error);
+        balanceElement.textContent = "Error";
+        showNotification("Failed to fetch user balance.", "error");
+    }
+}
+
+
+// تحديث شريط التقدم مع عدد افتراضي
+async function updateProgressBar() {
+    try {
+        // استعلام لجمع المشاركين العاديين
+        const { data: regularParticipants, error: regularError } = await supabase
+            .from("users")
+            .select("*")
+            .eq("is_participating", true);
+
+        if (regularError) throw new Error(regularError.message);
+
+        // استعلام لجمع المشاركين الـ VIP
+        const { data: vipParticipants, error: vipError } = await supabase
+            .from("users")
+            .select("*")
+            .eq("vip_status", true);
+
+        if (vipError) throw new Error(vipError.message);
+
+        // العدد الافتراضي
+        const defaultParticipants = 1050;
+
+        // حساب العدد الإجمالي
+        const totalParticipants = 
+            regularParticipants.length + 
+            (vipParticipants.length * 5) + // كل VIP = 5 أشخاص
+            defaultParticipants;
+
+        // الحد الأقصى (8000)
+        const maxParticipants = 8000;
+
+        // حساب النسبة المئوية
+        const progressPercentage = Math.min((totalParticipants / maxParticipants) * 100, 100);
+
+        // تحديث النص
+        progressText.textContent = `${totalParticipants} Participants`;
+
+        // تحديث عرض شريط التقدم
+        progressBar.style.width = `${progressPercentage}%`;
+
+        // إشعار عند اكتمال العدد
+        if (totalParticipants >= maxParticipants) {
+            showNotification("The minimum participants have been reached!", "success");
+        }
+    } catch (error) {
+        console.error("Error updating progress bar:", error);
+        showNotification("Failed to update progress bar.", "error");
+    }
+}
+
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+import { SUPABASE_URL, SUPABASE_ANON_KEY } from './Scripts/config.js';
+
+const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+async function notifyAdmin(userId, username, isVIP = false, amount = 0) {
+    // نص الرسالة كنص عادي
+    let message = `🟢 New Participation:
+👤 ID: ${userId}
+📛 Username: @${username}`;
+
+    if (isVIP) {
+        message += `
+🌟 VIP Status: Yes
+💰 Amount Paid: ${amount} TON`;
+    } else {
+        message += `
+🌟 VIP Status: No`;
+    }
+
+    const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+    const payload = {
+        chat_id: ADMIN_TELEGRAM_ID,
+        text: message, // إرسال الرسالة كـ "نص عادي"
+    };
+
+    try {
+        const response = await fetch(url, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+        });
+
+        const result = await response.json();
+
+        if (!result.ok) {
+            throw new Error(result.description);
+        }
+
+        console.log("Admin notified successfully:", result);
+    } catch (error) {
+        console.error("Error notifying admin:", error.message);
+    }
+}
+
+// تعديل دالة تسجيل المشاركة
+async function registerParticipation() {
+    const telegramApp = window.Telegram.WebApp;
+    const telegramId = telegramApp.initDataUnsafe.user?.id;
+    const username = telegramApp.initDataUnsafe.user?.username || `user_${telegramId}`;
+
+    try {
+        const { data, error } = await supabase
+            .from("users")
+            .update({ is_participating: true })
+            .eq("telegram_id", telegramId);
+
+        if (error) throw new Error(error.message);
+
+        // تحديث الحالة
+        statusElement.textContent = "Regular Participant";
+        statusElement.style.color = "#2D83EC";
+
+        // تحديث شريط التقدم
+        await updateProgressBar();
+
+        await notifyAdmin(telegramId, username, false);
+
+        showNotification("Participation confirmed successfully!", "success");
+    } catch (error) {
+        console.error("Error updating participation:", error);
+        showNotification("Failed to register participation.", "error");
+    }
+}
+
+
+window.Telegram.WebApp.setHeaderColor('#101010');
+document.addEventListener("DOMContentLoaded", fetchUserDataFromTelegram);
+
+// إعداد TonConnect
+const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
+    manifestUrl: 'https://sawcoin.vercel.app/json/tonconnect-manifest.json',
+    buttonRootId: 'ton-connect'
+});
+
+
+async function connectToWallet() {
+    try {
+        // التحقق مما إذا كانت المحفظة مربوطة بالفعل
+        const isConnected = tonConnectUI.wallet !== null;
+        if (isConnected) {
+            showNotification("Wallet is already connected.", "info");
+            return;
+        }
+
+        // إذا لم تكن مربوطة، قم بمحاولة الربط
+        const connectedWallet = await tonConnectUI.connectWallet();
+        console.log(connectedWallet);
+        showNotification("Wallet connected successfully", "success");
+    } catch (error) {
+        console.error("Error connecting wallet:", error);
+        showNotification("Failed to connect wallet.", "error");
+    }
+}
+
+
+tonConnectUI.uiOptions = {
+    twaReturnUrl: 'https://t.me/SAWCOIN_BOT/GAME'
+};
+
+async function makePayment() {
+    try {
+        const requiredAmount = '500000000'; 
+        const walletAddress = 'UQBOBIEGLWuaMNLBy3HTaYU-F-3Py8q7o0kGw7S_2vLxRmqr';
+
+        const transaction = {
+            validUntil: Math.floor(Date.now() / 1000) + 600, // صالح لمدة 10 دقائق
+            messages: [
+                {
+                    address: walletAddress,
+                    amount: requiredAmount,
+                },
+            ],
+        };
+
+        await tonConnectUI.sendTransaction(transaction);
+        showNotification('The operation was completed successfully', 'success');
+        await registerParticipation();
+    } catch (error) {
+        console.error('Error making payment:', error);
+        showNotification(`Payment failed: ${error.message}`, 'error');
+    }
+}
+
+// ربط الأزرار بالأحداث
+document.getElementById("ton-connect").addEventListener("click", connectToWallet);
+document.getElementById("payNow").addEventListener("click", makePayment);
+
+
+
+// عرض مستويات VIP في الواجهة
+function renderVIPLevels() {
+    const vipLevels = [
+        { id: 1, name: "VIP Silver", price: 5, features: "Basic perks and increased chances." },
+        { id: 2, name: "VIP Gold", price: 20, features: "Enhanced perks and increased chances." },
+        { id: 3, name: "VIP Platinum", price: 40, features: "Premium perks and maximum chances." },
+    ];
+
+    const vipSection = document.getElementById("vipSection");
+
+    // إضافة النصوص العامة التي تظهر مرة واحدة فقط
+    vipSection.innerHTML = `
+        <p id="Statustxtvip"> Get more chances to win </p>
+        <p id="Statustxtprogressvip"> VIP subscriptions allow you to increase your chances of winning the weekly lottery </p>
+    `;
+
+    // إضافة مستويات VIP
+    vipSection.innerHTML += vipLevels.map(level => `
+        <div class="vip-level">
+            <h3>${level.name}</h3>
+            <p class="vip-Price"> Price : ${level.price} TON</p>
+            <button onclick="subscribeVIP(${level.price})">Subscribe</button>
+            <p class="vip-features">Features: ${level.features}</p>
+        </div>
+    `).join("");
+}
+
+
+window.subscribeVIP = async function (price) {
+    const telegramApp = window.Telegram.WebApp;
+    const telegramId = telegramApp.initDataUnsafe.user?.id;
+    const username = telegramApp.initDataUnsafe.user?.username || `user_${telegramId}`;
+
+    try {
+        // الدفع عبر المحفظة
+        const transaction = {
+            validUntil: Math.floor(Date.now() / 1000) + 600,
+            messages: [
+                {
+                    address: "UQBOBIEGLWuaMNLBy3HTaYU-F-3Py8q7o0kGw7S_2vLxRmqr",
+                    amount: (price * 1_000_000_000).toString(), 
+                },
+            ],
+        };
+
+        await tonConnectUI.sendTransaction(transaction);
+
+        // تحديث حالة VIP في قاعدة البيانات
+        const { error } = await supabase
+            .from("users")
+            .update({ vip_status: true })
+            .eq("telegram_id", telegramId);
+
+        if (error) throw new Error(error.message);
+
+        // إخطار الأدمن بحالة VIP مع المبلغ المدفوع
+        await notifyAdmin(telegramId, username, true, price);
+
+        showNotification("VIP subscription successful!", "success");
+    } catch (error) {
+        console.error("Error subscribing to VIP:", error);
+        showNotification(`VIP subscription failed: ${error.message}`, "error");
+    }
+};
+
+
+// عرض مستويات VIP عند تحميل الصفحة
+document.addEventListener("DOMContentLoaded", renderVIPLevels);
