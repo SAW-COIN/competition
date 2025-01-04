@@ -78,8 +78,6 @@ var htmlContent = `
             <p>© 2024 All rights reserved to <strong>SawToken</strong>.</p>
         </footer>
     </div>
-    <script src="competition.js" type="module"></script>
-    <script src="api.js" type="module"></script>
 `;
 
 // تعيين المحتوى إلى الصفحة
