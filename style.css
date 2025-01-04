@@ -276,6 +276,10 @@ body {
 }
 
 .user-name {
+    display: none; /* يخفي العنصر ويزيله من التخطيط تمامًا */
+}
+ 
+.user-name {
     margin-left: 5px;
     margin-right: 5px;
     position: absolute;
@@ -283,10 +287,10 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-right: 3px;
     padding-left: 0;
-    width: auto;
-    height: 25px; 
+    width: 0;
+    height: 0; 
+    visibility: hidden;
     border: 1px solid rgba(255, 255, 255, 0.05); 
     border-radius: 30px; /* زوايا مستديرة في الأسفل فقط */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -298,7 +302,7 @@ body {
     margin-left: 5px;
     margin-right: 5px;
     position: absolute;
-    left: 105px; 
+    left: 15px; 
     display: flex;
     justify-content: space-between;
     align-items: center;
