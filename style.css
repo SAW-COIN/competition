@@ -82,6 +82,7 @@ body {
 }
 
 .header h1 {
+    font-size: 18px;
     z-index: 7; /* ضمان ظهور النص فوق الصورة */
     position: relative;
 }
