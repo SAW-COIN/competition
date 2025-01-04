@@ -1,22 +1,5 @@
 // إنشاء متغير يحتوي على محتوى HTML
 var htmlContent = `
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Win</title>
-    <link href="style.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/tonweb/dist/tonweb.min.js"></script>
-    <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://sad.adsgram.ai/js/sad.min.js"></script>
-</head>
-<body>
     <div class="container">
         <div class="top-bar">
             <div class="user-name">
@@ -97,8 +80,6 @@ var htmlContent = `
     </div>
     <script src="competition.js" type="module"></script>
     <script src="api.js" type="module"></script>
-</body>
-</html>
 `;
 
 // تعيين المحتوى إلى الصفحة
