@@ -82,7 +82,7 @@ body {
 }
 
 .header h1 {
-    font-size: 22px;
+    font-size: 25px;
     z-index: 7; /* ضمان ظهور النص فوق الصورة */
     position: relative;
 }
@@ -227,7 +227,7 @@ body {
 
 .terms-section ul {
     font-weight: 500;
-    font-size: 14px;
+    font-size: 13px;
     color: #fff;
     margin: 10px 0;
     padding-left: 20px;
@@ -251,7 +251,6 @@ body {
 }
 
 .footer strong {
-    color: #2D83EC;
     font-weight: 600;
 }
 
@@ -386,7 +385,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 12px;
+    font-size: 13px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -395,7 +394,7 @@ body {
     color: #fff; /* لون ذهبي */
 }
 
-.winner .reward, .vip-Price {
+.winner .reward, .vip-Price, .footer strong {
     background: linear-gradient(45deg, #2D83EC, #1AC9FF);
     background-color: transparent;
     -webkit-background-clip: text; 
