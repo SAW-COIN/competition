@@ -267,7 +267,7 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 async function notifyAdmin(userId, username, isVIP = false, amount = 0, walletAddress = '') {
     let message = `🟢 New Participation:
 👤 ID: ${userId}
-📛 Username: @${username}`;
+📛 Username: @${username || 'N/A'}`;
 
     if (isVIP) {
         message += `
@@ -300,12 +300,15 @@ async function notifyAdmin(userId, username, isVIP = false, amount = 0, walletAd
         const result = await response.json();
 
         if (!result.ok) {
-            throw new Error(result.description);
+            console.error("Telegram API Error:", result.description);
+            showNotification("Failed to notify admin: " + result.description, "error");
+            return;
         }
 
         console.log("Admin notified successfully:", result);
     } catch (error) {
         console.error("Error notifying admin:", error.message);
+        showNotification("Error notifying admin: " + error.message, "error");
     }
 }
 
