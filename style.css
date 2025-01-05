@@ -580,7 +580,7 @@ body {
         opacity: 0;
     }
     100% {
-        top: 31px;
+        top: 50px;
         opacity: 1;
     }
   }
