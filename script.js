@@ -383,47 +383,35 @@ async function makePayment() {
             await connectToWallet(); // عرض واجهة الربط
             if (!connectedWallet) {
                 showNotification("Wallet connection is required to proceed.", "error");
-                return;
+                return; // إنهاء الدالة إذا لم يتم الربط
             }
         }
 
-        const requiredAmount = '50000'; // المبلغ المطلوب (بالـ nanotons)
-        const destinationWallet = 'UQBOBIEGLWuaMNLBy3HTaYU-F-3Py8q7o0kGw7S_2vLxRmqr'; // عنوان المحفظة الوجهة
-        const userWalletAddress = connectedWallet?.account?.address; // عنوان محفظة المستخدم
+        const requiredAmount = '500000000'; // المبلغ المطلوب (بالـ nanotons)
+        const walletAddress = 'UQBOBIEGLWuaMNLBy3HTaYU-F-3Py8q7o0kGw7S_2vLxRmqr'; // عنوان المحفظة الوجهة
 
         const transaction = {
             validUntil: Math.floor(Date.now() / 1000) + 600, // صالح لمدة 10 دقائق
             messages: [
                 {
-                    address: destinationWallet,
+                    address: walletAddress,
                     amount: requiredAmount,
                 },
             ],
         };
 
         // تنفيذ المعاملة
-        const txResult = await tonConnectUI.sendTransaction(transaction);
+        await tonConnectUI.sendTransaction(transaction);
         showNotification('The operation was completed successfully', 'success');
-
-        // توليد رابط لتأكيد المعاملة على مستكشف البلوكتشين
-        const explorerLink = `https://tonscan.org/tx/${txResult.txId}`;
-
-        // تسجيل المشاركة وتحديث حالة المستخدم
-        const participationResult = await registerParticipation();
-        if (participationResult.success) {
-            // إخطار الأدمن بتفاصيل المشاركة مع تضمين عنوان محفظة المستخدم
-            const telegramApp = window.Telegram.WebApp;
-            const telegramId = telegramApp.initDataUnsafe.user?.id;
-            const username = telegramApp.initDataUnsafe.user?.username || `user_${telegramId}`;
-            await notifyAdmin(telegramId, username, false, 0, userWalletAddress, explorerLink);
-        } else {
-            showNotification("Participation registration failed.", "error");
-        }
+        
+        // تسجيل المشاركة
+        await registerParticipation();
     } catch (error) {
         console.error('Error making payment:', error);
         showNotification(`Payment failed: ${error.message}`, 'error');
     }
 }
+
 
 // ربط الأزرار بالأحداث
 document.getElementById("ton-connect").addEventListener("click", connectToWallet);
