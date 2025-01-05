@@ -26,6 +26,9 @@ body {
     padding: 0;
     background-color: #101010;
     color: #fff;
+
+    /* إضافة تأثير التدرج الأسود المتلاشي في الجزء العلوي من الشاشة */
+    background: linear-gradient(to bottom, #000000 0px, #101010 20px);
 }
 
 #Statustxtvip {
