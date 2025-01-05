@@ -263,27 +263,25 @@ body {
     font-weight: 600;
 }
 
-.user-name {
-    display: none; /* يخفي العنصر ويزيله من التخطيط تمامًا */
-}
+/*.user-name {
+    display: none; 
+}*/
  
 .user-name {
-    margin-left: 5px;
-    margin-right: 5px;
+    top: 25px;
     position: absolute;
-    left: 12px; /* 20px من الجهة اليسرى */
+    width: auto;
+    height: 30px;
+    left: 50%; /* تمركز العنصر من اليسار */
+    transform: translateX(-50%);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 0;
-    width: 0;
-    height: 0; 
-    visibility: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.05); 
+   /* visibility: hidden;*/
     border-radius: 30px; /* زوايا مستديرة في الأسفل فقط */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background-color: rgba(255, 255, 255, 0.00009);
-    backdrop-filter: blur(5px); 
+    background-color: rgba(0, 0, 0, 0.3); /* لون أسود أكثر وضوحًا */
+    backdrop-filter: blur(5px);
 }
 
 .user-Balance {
@@ -301,12 +299,7 @@ body {
    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     background-color: rgba(0, 0, 0, 0.1); 
     backdrop-filter: blur(5px);*/
-}
-
-.user-Balance span { 
-    margin-left: 1px;
-    margin-right: 5px;
-}
+} 
 
 #ton-connect button {
     top: 5px;
