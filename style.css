@@ -26,7 +26,6 @@ body {
     padding: 0;
     background-color: #101010;
     color: #fff;
-
     /* تأثير التدرج الأسود المتلاشي إلى اللون #101010 */
     background: linear-gradient(to bottom, #000000 0%, #000000 60px, #101010 100%);
 }
@@ -289,7 +288,7 @@ body {
 
 .user-Balance {
     position: absolute;
-    left: 32px; 
+    left: 38px; 
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -314,9 +313,9 @@ body {
     margin-left: 5px;
     margin-right: 5px;
     width: 40%;
-    height: 28px; 
+    height: 30px; 
     position: absolute;
-    right: 28px;
+    right: 35px;
     font-size: 10px;
     white-space: nowrap;
     display: flex;
