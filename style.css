@@ -27,8 +27,8 @@ body {
     background-color: #101010;
     color: #fff;
 
-    /* إضافة تأثير التدرج الأسود المتلاشي في الجزء العلوي من الشاشة */
-    background: linear-gradient(to bottom, #000000 0px, #000000 80px, #101010 80px);
+    /* تأثير التدرج الأسود المتلاشي إلى اللون #101010 */
+    background: linear-gradient(to bottom, #000000 0%, #000000 80px, #101010 100%);
 }
 
 
