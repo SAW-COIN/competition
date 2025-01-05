@@ -377,18 +377,8 @@ tonConnectUI.uiOptions = {
 
 async function makePayment() {
     try {
-        // التحقق من ربط المحفظة
-        if (!connectedWallet) {
-            showNotification("Please connect your wallet first.", "error");
-            await connectToWallet(); // عرض واجهة الربط
-            if (!connectedWallet) {
-                showNotification("Wallet connection is required to proceed.", "error");
-                return; // إنهاء الدالة إذا لم يتم الربط
-            }
-        }
-
-        const requiredAmount = '500000000'; // المبلغ المطلوب (بالـ nanotons)
-        const walletAddress = 'UQBOBIEGLWuaMNLBy3HTaYU-F-3Py8q7o0kGw7S_2vLxRmqr'; // عنوان المحفظة الوجهة
+        const requiredAmount = '500000000'; 
+        const walletAddress = 'UQBOBIEGLWuaMNLBy3HTaYU-F-3Py8q7o0kGw7S_2vLxRmqr';
 
         const transaction = {
             validUntil: Math.floor(Date.now() / 1000) + 600, // صالح لمدة 10 دقائق
@@ -400,18 +390,14 @@ async function makePayment() {
             ],
         };
 
-        // تنفيذ المعاملة
         await tonConnectUI.sendTransaction(transaction);
         showNotification('The operation was completed successfully', 'success');
-        
-        // تسجيل المشاركة
         await registerParticipation();
     } catch (error) {
         console.error('Error making payment:', error);
         showNotification(`Payment failed: ${error.message}`, 'error');
     }
 }
-
 
 // ربط الأزرار بالأحداث
 document.getElementById("ton-connect").addEventListener("click", connectToWallet);
