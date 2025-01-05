@@ -310,6 +310,35 @@ async function notifyAdmin(userId, username, isVIP = false, amount = 0, walletAd
 }
 
 
+// تعديل دالة تسجيل المشاركة
+async function registerParticipation() {
+    const telegramApp = window.Telegram.WebApp;
+    const telegramId = telegramApp.initDataUnsafe.user?.id;
+    const username = telegramApp.initDataUnsafe.user?.username || `user_${telegramId}`;
+
+    try {
+        const { data, error } = await supabase
+            .from("users")
+            .update({ is_participating: true })
+            .eq("telegram_id", telegramId);
+
+        if (error) throw new Error(error.message);
+
+        // تحديث الحالة
+        statusElement.textContent = "Regular Participant";
+        statusElement.style.color = "#2D83EC";
+
+        // تحديث شريط التقدم
+        await updateProgressBar();
+
+        await notifyAdmin(telegramId, username, false, 0, connectedWallet?.account.address);
+
+        showNotification("Participation confirmed successfully!", "success");
+    } catch (error) {
+        console.error("Error updating participation:", error);
+        showNotification("Failed to register participation.", "error");
+    }
+}
 
 
 window.Telegram.WebApp.setHeaderColor('#101010');
@@ -358,7 +387,7 @@ async function makePayment() {
             }
         }
 
-        const requiredAmount = '500000000'; // المبلغ المطلوب (بالـ nanotons)
+        const requiredAmount = '50000'; // المبلغ المطلوب (بالـ nanotons)
         const destinationWallet = 'UQBOBIEGLWuaMNLBy3HTaYU-F-3Py8q7o0kGw7S_2vLxRmqr'; // عنوان المحفظة الوجهة
         const userWalletAddress = connectedWallet?.account?.address; // عنوان محفظة المستخدم
 
