@@ -24,12 +24,13 @@ body {
     font-weight: 700;
     margin: 0;
     padding: 0;
-    /*background-color: #101010;*/
+    background-color: #101010;
     color: #fff;
 
     /* إضافة تأثير التدرج الأسود المتلاشي في الجزء العلوي من الشاشة */
-    background: linear-gradient(to bottom, #000000 0px, #101010 20px);
+    background: linear-gradient(to bottom, #000000 0px, #000000 80px, #101010 80px);
 }
+
 
 #Statustxtvip {
     margin-top: 10px;
