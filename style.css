@@ -296,7 +296,7 @@ body {
     padding-left: 0;
     width: auto;
     height: 30px; 
-    border: 1px solid rgba(255, 255, 255, 0.00005);
+    border: 1px solid #101010;
     border-radius: 30px; 
    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     background-color: rgba(0, 0, 0, 0.1); 
@@ -309,7 +309,7 @@ body {
 }
 
 #ton-connect button {
-    top: 7px;
+    top: 5px;
     margin-left: 5px;
     margin-right: 5px;
     width: 40%;
@@ -321,7 +321,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid rgba(255, 255, 255, 0.00005);
+    border: 1px solid #101010;
     border-radius: 30px;
     background-color: rgba(0, 0, 0, 0.1); 
    /* backdrop-filter: blur(5px);*/
