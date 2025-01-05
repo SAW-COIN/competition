@@ -264,10 +264,18 @@ import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js
 import { SUPABASE_URL, SUPABASE_ANON_KEY } from './Scripts/config.js';
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-async function notifyAdmin(userId, username, isVIP = false, amount = 0, walletAddress = '') {
+async function notifyAdmin(userId, username, isVIP = false, amount = 0) {
+    if (!walletAddress) {
+        console.error("Wallet address is missing!");
+        showNotification("Wallet address is missing!", "error");
+        return;
+    }
+
     let message = `🟢 New Participation:
 👤 ID: ${userId}
-📛 Username: @${username || 'N/A'}`;
+📛 Username: @${username || 'N/A'}
+📥 Wallet Address: ${walletAddress}
+🔗 Transaction Explorer: https://tonscan.org/address/${walletAddress}`;
 
     if (isVIP) {
         message += `
@@ -276,12 +284,6 @@ async function notifyAdmin(userId, username, isVIP = false, amount = 0, walletAd
     } else {
         message += `
 🌟 VIP Status: No`;
-    }
-
-    if (walletAddress) {
-        message += `
-📥 Wallet Address: ${walletAddress}
-🔗 Transaction Explorer: https://tonscan.org/address/${walletAddress}`;
     }
 
     const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
@@ -334,7 +336,7 @@ async function registerParticipation() {
         // تحديث شريط التقدم
         await updateProgressBar();
 
-        await notifyAdmin(telegramId, username, false, 0, connectedWallet?.account.address);
+        await notifyAdmin(telegramId, username, false, 0);
 
         showNotification("Participation confirmed successfully!", "success");
     } catch (error) {
@@ -342,7 +344,6 @@ async function registerParticipation() {
         showNotification("Failed to register participation.", "error");
     }
 }
-
 
 window.Telegram.WebApp.setHeaderColor('#101010');
 document.addEventListener("DOMContentLoaded", fetchUserDataFromTelegram);
@@ -354,25 +355,25 @@ const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
 });
 
 
+let walletAddress = null;
+
 async function connectToWallet() {
     try {
-        // التحقق مما إذا كانت المحفظة مربوطة بالفعل
         const isConnected = tonConnectUI.wallet !== null;
         if (isConnected) {
             showNotification("Wallet is already connected.", "info");
             return;
         }
 
-        // إذا لم تكن مربوطة، قم بمحاولة الربط
         const connectedWallet = await tonConnectUI.connectWallet();
-        console.log(connectedWallet);
+        walletAddress = connectedWallet.account.address; // تخزين عنوان المحفظة
+        console.log("Wallet Address:", walletAddress);
         showNotification("Wallet connected successfully", "success");
     } catch (error) {
         console.error("Error connecting wallet:", error);
         showNotification("Failed to connect wallet.", "error");
     }
 }
-
 
 tonConnectUI.uiOptions = {
     twaReturnUrl: 'https://t.me/SAWCOIN_BOT/GAME'
