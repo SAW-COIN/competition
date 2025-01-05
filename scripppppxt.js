@@ -264,28 +264,31 @@ import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js
 import { SUPABASE_URL, SUPABASE_ANON_KEY } from './Scripts/config.js';
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-async function notifyAdmin(userId, username, isVIP = false, amount = 0) {
-    if (!walletAddress) {
-        console.error("Wallet address is missing!");
-        showNotification("Wallet address is missing!", "error");
-        return;
-    }
 
-    let message = `🟢 New Participation:
-👤 ID: ${userId}
-📛 Username: @${username || 'N/A'}
-📥 Wallet Address: ${walletAddress}
-🔗 Transaction Explorer: https://tonscan.org/address/${walletAddress}`;
+// تعديل دالة إشعار الأدمن لتضمين عنوان المحفظة
+async function notifyAdminForRegular(userId, username) {
+    const wallet = getWalletAddress(); // جلب عنوان المحفظة
+    const message = `🟢 New Regular Participation:
+👤 ID : ${userId}
+📛 Username : @${username || "N/A"}
+💼 Wallet : https://tonviewer.com/${wallet}`;
 
-    if (isVIP) {
-        message += `
-🌟 VIP Status: Yes
-💰 Amount Paid: ${amount} TON`;
-    } else {
-        message += `
-🌟 VIP Status: No`;
-    }
+    await sendTelegramNotification(message);
+}
 
+async function notifyAdminForVIP(userId, username, amount) {
+    const wallet = getWalletAddress(); // جلب عنوان المحفظة
+    const message = `🌟 New VIP Subscription:
+👤 ID : ${userId}
+📛 Username : @${username || "N/A"}
+💼 Wallet : https://tonviewer.com/${wallet}
+💰 Paid : ${amount} TON`;
+
+    await sendTelegramNotification(message);
+}
+
+// دالة عامة لإرسال الإشعار إلى تليجرام
+async function sendTelegramNotification(message) {
     const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
     const payload = {
         chat_id: ADMIN_TELEGRAM_ID,
@@ -304,10 +307,9 @@ async function notifyAdmin(userId, username, isVIP = false, amount = 0) {
         if (!result.ok) {
             console.error("Telegram API Error:", result.description);
             showNotification("Failed to notify admin: " + result.description, "error");
-            return;
+        } else {
+            console.log("Admin notified successfully:", result);
         }
-
-        console.log("Admin notified successfully:", result);
     } catch (error) {
         console.error("Error notifying admin:", error.message);
         showNotification("Error notifying admin: " + error.message, "error");
@@ -336,8 +338,8 @@ async function registerParticipation() {
         // تحديث شريط التقدم
         await updateProgressBar();
 
-        await notifyAdmin(telegramId, username, false, 0);
-
+        await notifyAdminForRegular(telegramId, username, walletAddress);
+      
         showNotification("Participation confirmed successfully!", "success");
     } catch (error) {
         console.error("Error updating participation:", error);
@@ -355,7 +357,7 @@ const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
 });
 
 
-let walletAddress = null;
+let walletAddress = null; // متغير عام لتخزين عنوان المحفظة
 
 async function connectToWallet() {
     try {
@@ -366,14 +368,24 @@ async function connectToWallet() {
         }
 
         const connectedWallet = await tonConnectUI.connectWallet();
-        walletAddress = connectedWallet.account.address; // تخزين عنوان المحفظة
+        walletAddress = connectedWallet.account.address;
+
+        // تخزين عنوان المحفظة في التخزين المحلي
+        localStorage.setItem("walletAddress", walletAddress);
+
+        showNotification("Wallet connected successfully!", "success");
         console.log("Wallet Address:", walletAddress);
-        showNotification("Wallet connected successfully", "success");
     } catch (error) {
-        console.error("Error connecting wallet:", error);
-        showNotification("Failed to connect wallet.", "error");
+        console.error("Error connecting to wallet:", error.message);
+        showNotification("Failed to connect wallet: " + error.message, "error");
     }
 }
+
+// جلب عنوان المحفظة من التخزين المحلي
+function getWalletAddress() {
+    return localStorage.getItem("walletAddress") || "Not Connected";
+}
+
 
 tonConnectUI.uiOptions = {
     twaReturnUrl: 'https://t.me/SAWCOIN_BOT/GAME'
@@ -412,7 +424,7 @@ document.getElementById("payNow").addEventListener("click", makePayment);
 // عرض مستويات VIP في الواجهة
 function renderVIPLevels() {
     const vipLevels = [
-        { id: 1, name: "VIP Silver", price: 5, features: "Basic perks and increased chances." },
+        { id: 1, name: "VIP Silver", price: 0.000005, features: "Basic perks and increased chances." },
         { id: 2, name: "VIP Gold", price: 20, features: "Enhanced perks and increased chances." },
         { id: 3, name: "VIP Platinum", price: 40, features: "Premium perks and maximum chances." },
     ];
@@ -465,8 +477,8 @@ window.subscribeVIP = async function (price) {
         if (error) throw new Error(error.message);
 
         // إخطار الأدمن بحالة VIP مع المبلغ المدفوع
-        await notifyAdmin(telegramId, username, true, price);
-        
+        await notifyAdminForVIP(telegramId, username, walletAddress, price);
+    
         showNotification("VIP subscription successful!", "success");
     } catch (error) {
         console.error("Error subscribing to VIP:", error);
@@ -477,3 +489,4 @@ window.subscribeVIP = async function (price) {
 
 // عرض مستويات VIP عند تحميل الصفحة
 document.addEventListener("DOMContentLoaded", renderVIPLevels);
+
