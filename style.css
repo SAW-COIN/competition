@@ -268,10 +268,11 @@ body {
 }*/
  
 .user-name {
-    top: 30px;
+    top: 32px;
+    z-index: 1000;
     position: fixed;
     width: auto;
-    height: 30px;
+    height: 28px;
     left: 50%; /* تمركز العنصر من اليسار */
     transform: translateX(-50%);
     display: flex;
@@ -338,8 +339,8 @@ body {
 }
 
 .userrr-imagee {
-    width: 27px; /* عرض الصورة */
-    height: 27px; /* ارتفاع الصورة */
+    width: 26px; /* عرض الصورة */
+    height: 26px; /* ارتفاع الصورة */
     border-radius: 50%; /* جعل الصورة دائرية */
     object-fit: cover; /* تأكد من احتواء الصورة داخل الدائرة */
 } 
