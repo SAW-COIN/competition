@@ -492,29 +492,28 @@ document.addEventListener("DOMContentLoaded", renderVIPLevels);
 document.addEventListener('DOMContentLoaded', () => {
     const topBar = document.querySelector('.top-bar');
     const container = document.querySelector('.container');
+    const userName = document.querySelector('.user-name');
 
-    // دالة لتحديث تصميم الشريط والحاوية والإشعار بناءً على حالة ملء الشاشة
     function updateView() {
         if (Telegram.WebApp.isFullscreen) {
-            topBar.classList.add('fullscreen'); // تفعيل تصميم ملء الشاشة للشريط العلوي
-            container.classList.add('fullscreen-container'); // تفعيل تصميم ملء الشاشة للحاوية
-         } else {
-            topBar.classList.remove('fullscreen'); // العودة للوضع العادي للشريط العلوي
-            container.classList.remove('fullscreen-container'); // العودة للوضع العادي للحاوية
+            topBar.classList.add('fullscreen');
+            container.classList.add('fullscreen-container');
+            userName.classList.add('fullscreen'); // إظهار العنصر في وضع الشاشة الكاملة
+        } else {
+            topBar.classList.remove('fullscreen');
+            container.classList.remove('fullscreen-container');
+            userName.classList.remove('fullscreen'); // إخفاء العنصر في الوضع العادي
         }
     }
 
-    // استدعاء الدالة عند تحميل الصفحة
     updateView();
 
-    // الاستماع لتغيرات حالة ملء الشاشة
     Telegram.WebApp.onEvent('fullscreenChanged', updateView);
 
-    // محاولة تفعيل وضع ملء الشاشة باستخدام try...catch
     try {
         Telegram.WebApp.requestFullscreen();
     } catch (error) {
         console.error("Failed to activate full-screen mode:", error);
     }
-
 });
+
