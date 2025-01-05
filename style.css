@@ -268,13 +268,13 @@ body {
 }*/
  
 .user-name {
-    top: 35px;
+    top: 34px;
     z-index: 1000;
     position: fixed;
     width: auto;
     height: 28px;
-    left: 50%; /* تمركز العنصر من اليسار */
-    transform: translateX(-50%);
+    left: 48%; /* تمركز العنصر من اليسار */
+    transform: translateX(-48%);
     display: flex;
     justify-content: space-between;
     align-items: center;
