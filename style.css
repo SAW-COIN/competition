@@ -531,7 +531,8 @@ body {
     position: fixed;
     top: 0; /* وضع البار في الأعلى */
     left: 0;
-    width: 100%;
+    margin: 0 auto;
+    width: 90%;
     height: 40px;
     border-radius: 30px; /* زوايا مستديرة في الأسفل */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
