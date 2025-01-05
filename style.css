@@ -538,16 +538,16 @@ body {
     font-size: 13px;
     font-weight: 500;
     position: fixed;
-    top: 0; /* وضع البار في الأعلى */
+    top: 5px; /* وضع البار في الأعلى */
     left: 50%; /* تمركز العنصر من اليسار */
     transform: translateX(-50%); /* تحريك العنصر للمنتصف */
     margin: 0 auto;
     width: 88%;
     height: 38px;
     border-radius: 30px; /* زوايا مستديرة في الأسفل */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background-color: rgba(0, 0, 0, 0.3); /* لون أسود أكثر وضوحًا */
-    backdrop-filter: blur(5px);
+    /*box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.3); 
+    backdrop-filter: blur(5px);*/
     color: white;
     display: flex;
     justify-content: space-between;
@@ -557,6 +557,9 @@ body {
 
 /* التصميم في وضع ملء الشاشة */
 .top-bar.fullscreen {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.3); 
+    backdrop-filter: blur(5px);
     top: 68px; /* دفع البار للأسفل */
     border-radius: 30px; /* نفس الزوايا */
 }
