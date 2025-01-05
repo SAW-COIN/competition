@@ -560,13 +560,13 @@ body {
     transform: translateX(-50%);
     background-color: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(9px); 
-    padding: 10px 18px;
+    padding: 10px 25px;
     border-radius: 30px;
     font-size: 12px;
     z-index: 1000;
     opacity: 0; /* البداية غير مرئية */
-    width: 200px;
-    max-width: 70%;
+    width: 240px;
+    max-width: 80%;
     text-align: center;
     transition: opacity 0.5s ease, top 0.5s ease;
 }
