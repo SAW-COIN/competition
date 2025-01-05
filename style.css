@@ -289,14 +289,14 @@ body {
 
 .user-Balance {
     position: absolute;
-    left: 25px; 
+    left: 32px; 
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-right: 3px;
     padding-left: 0;
     width: auto;
-    height: 28px; 
+    height: 30px; 
    /* border: 1px solid rgba(255, 255, 255, 0.05);*/
     border-radius: 30px; 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -316,7 +316,7 @@ body {
     width: 40%;
     height: 28px; 
     position: absolute;
-    right: 20px;
+    right: 28px;
     font-size: 10px;
     white-space: nowrap;
     display: flex;
