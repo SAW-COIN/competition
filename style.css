@@ -268,8 +268,8 @@ body {
 }*/
  
 .user-name {
-    top: 25px;
-    position: absolute;
+    top: 30px;
+    position: fixed;
     width: auto;
     height: 30px;
     left: 50%; /* تمركز العنصر من اليسار */
@@ -282,6 +282,16 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     background-color: rgba(0, 0, 0, 0.3); /* لون أسود أكثر وضوحًا */
     backdrop-filter: blur(5px);
+}
+
+.user-name span { 
+    margin-left: 1px;
+    margin-right: 5px;
+}
+
+.user-Balance span { 
+    margin-left: 1px;
+    margin-right: 5px;
 }
 
 .user-Balance {
