@@ -465,8 +465,8 @@ window.subscribeVIP = async function (price) {
         if (error) throw new Error(error.message);
 
         // إخطار الأدمن بحالة VIP مع المبلغ المدفوع
-        await notifyAdmin(telegramId, username, true, price, connectedWallet?.account.address);
-
+        await notifyAdmin(telegramId, username, true, price);
+        
         showNotification("VIP subscription successful!", "success");
     } catch (error) {
         console.error("Error subscribing to VIP:", error);
