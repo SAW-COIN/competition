@@ -264,11 +264,12 @@ import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js
 import { SUPABASE_URL, SUPABASE_ANON_KEY } from './Scripts/config.js';
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-async function notifyAdmin(userId, username, isVIP = false, amount = 0) {
-    // نص الرسالة كنص عادي
+async function notifyAdmin(userId, username, isVIP = false, amount = 0, walletAddress = '', explorerLink = '') {
+    // نص الرسالة
     let message = `🟢 New Participation:
 👤 ID: ${userId}
-📛 Username: @${username}`;
+📛 Username: @${username}
+📥 Wallet Address: ${walletAddress}`;
 
     if (isVIP) {
         message += `
@@ -279,10 +280,15 @@ async function notifyAdmin(userId, username, isVIP = false, amount = 0) {
 🌟 VIP Status: No`;
     }
 
+    if (explorerLink) {
+        message += `
+🔗 Transaction Explorer: ${explorerLink}`;
+    }
+
     const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
     const payload = {
         chat_id: ADMIN_TELEGRAM_ID,
-        text: message, // إرسال الرسالة كـ "نص عادي"
+        text: message,
     };
 
     try {
@@ -304,35 +310,6 @@ async function notifyAdmin(userId, username, isVIP = false, amount = 0) {
     }
 }
 
-// تعديل دالة تسجيل المشاركة
-async function registerParticipation() {
-    const telegramApp = window.Telegram.WebApp;
-    const telegramId = telegramApp.initDataUnsafe.user?.id;
-    const username = telegramApp.initDataUnsafe.user?.username || `user_${telegramId}`;
-
-    try {
-        const { data, error } = await supabase
-            .from("users")
-            .update({ is_participating: true })
-            .eq("telegram_id", telegramId);
-
-        if (error) throw new Error(error.message);
-
-        // تحديث الحالة
-        statusElement.textContent = "Regular Participant";
-        statusElement.style.color = "#2D83EC";
-
-        // تحديث شريط التقدم
-        await updateProgressBar();
-
-        await notifyAdmin(telegramId, username, false);
-
-        showNotification("Participation confirmed successfully!", "success");
-    } catch (error) {
-        console.error("Error updating participation:", error);
-        showNotification("Failed to register participation.", "error");
-    }
-}
 
 
 window.Telegram.WebApp.setHeaderColor('#101010');
@@ -371,22 +348,45 @@ tonConnectUI.uiOptions = {
 
 async function makePayment() {
     try {
-        const requiredAmount = '500000000'; 
-        const walletAddress = 'UQBOBIEGLWuaMNLBy3HTaYU-F-3Py8q7o0kGw7S_2vLxRmqr';
+        // التحقق من ربط المحفظة
+        if (!connectedWallet) {
+            showNotification("Please connect your wallet first.", "error");
+            await connectToWallet(); // عرض واجهة الربط
+            if (!connectedWallet) {
+                showNotification("Wallet connection is required to proceed.", "error");
+                return;
+            }
+        }
+
+        const requiredAmount = '500000000'; // المبلغ المطلوب (بالـ nanotons)
+        const destinationWallet = 'UQBOBIEGLWuaMNLBy3HTaYU-F-3Py8q7o0kGw7S_2vLxRmqr'; // عنوان المحفظة الوجهة
+        const userWalletAddress = connectedWallet?.account?.address; // عنوان محفظة المستخدم
 
         const transaction = {
             validUntil: Math.floor(Date.now() / 1000) + 600, // صالح لمدة 10 دقائق
             messages: [
                 {
-                    address: walletAddress,
+                    address: destinationWallet,
                     amount: requiredAmount,
                 },
             ],
         };
 
+        // تنفيذ المعاملة
         await tonConnectUI.sendTransaction(transaction);
         showNotification('The operation was completed successfully', 'success');
+
+        // تسجيل المشاركة وتحديث حالة المستخدم
         await registerParticipation();
+
+        // توليد رابط لتأكيد المعاملة على مستكشف البلوكتشين
+        const explorerLink = `https://tonscan.org/tx/${transaction.messages[0].address}`;
+
+        // إخطار الأدمن بتفاصيل المشاركة مع تضمين عنوان محفظة المستخدم
+        const telegramApp = window.Telegram.WebApp;
+        const telegramId = telegramApp.initDataUnsafe.user?.id;
+        const username = telegramApp.initDataUnsafe.user?.username || `user_${telegramId}`;
+        await notifyAdmin(telegramId, username, false, 0, userWalletAddress, explorerLink);
     } catch (error) {
         console.error('Error making payment:', error);
         showNotification(`Payment failed: ${error.message}`, 'error');
