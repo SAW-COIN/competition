@@ -485,8 +485,36 @@ window.subscribeVIP = async function (price) {
         showNotification(`VIP subscription failed: ${error.message}`, "error");
     }
 };
-
-
 // عرض مستويات VIP عند تحميل الصفحة
 document.addEventListener("DOMContentLoaded", renderVIPLevels);
 
+// Full screen mode 
+document.addEventListener('DOMContentLoaded', () => {
+    const topBar = document.querySelector('.top-bar');
+    const container = document.querySelector('.container');
+
+    // دالة لتحديث تصميم الشريط والحاوية والإشعار بناءً على حالة ملء الشاشة
+    function updateView() {
+        if (Telegram.WebApp.isFullscreen) {
+            topBar.classList.add('fullscreen'); // تفعيل تصميم ملء الشاشة للشريط العلوي
+            container.classList.add('fullscreen-container'); // تفعيل تصميم ملء الشاشة للحاوية
+         } else {
+            topBar.classList.remove('fullscreen'); // العودة للوضع العادي للشريط العلوي
+            container.classList.remove('fullscreen-container'); // العودة للوضع العادي للحاوية
+        }
+    }
+
+    // استدعاء الدالة عند تحميل الصفحة
+    updateView();
+
+    // الاستماع لتغيرات حالة ملء الشاشة
+    Telegram.WebApp.onEvent('fullscreenChanged', updateView);
+
+    // محاولة تفعيل وضع ملء الشاشة باستخدام try...catch
+    try {
+        Telegram.WebApp.requestFullscreen();
+    } catch (error) {
+        console.error("Failed to activate full-screen mode:", error);
+    }
+
+});
