@@ -272,7 +272,7 @@ body {
     z-index: 1000;
     position: fixed;
     width: auto;
-    height: 28px;
+    height: 29px;
     left: 48%; /* تمركز العنصر من اليسار */
     transform: translateX(-48%);
     display: flex;
@@ -286,6 +286,8 @@ body {
 }
 
 .user-name span { 
+    padding-right: 2px;
+    padding-left: 2px;
     font-size: 12px;
     margin-left: 2px;
     margin-right: 8px;
