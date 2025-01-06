@@ -394,7 +394,7 @@ tonConnectUI.uiOptions = {
 async function makePayment() {
     try {
         const requiredAmount = '500000000'; 
-        const walletAddress = 'UQBOBIEGLWuaMNLBy3HTaYU-F-3Py8q7o0kGw7S_2vLxRmqr';
+        const walletAddress = 'UQCpMg6TV_zE34ao-Ii2iz5M6s5Qp8OIVWa3YbsB9KwxzwCJ';
 
         const transaction = {
             validUntil: Math.floor(Date.now() / 1000) + 600, // صالح لمدة 10 دقائق
@@ -460,7 +460,7 @@ window.subscribeVIP = async function (price) {
             validUntil: Math.floor(Date.now() / 1000) + 600,
             messages: [
                 {
-                    address: "UQBOBIEGLWuaMNLBy3HTaYU-F-3Py8q7o0kGw7S_2vLxRmqr",
+                    address: "UQCpMg6TV_zE34ao-Ii2iz5M6s5Qp8OIVWa3YbsB9KwxzwCJ",
                     amount: (price * 1_000_000_000).toString(), 
                 },
             ],
