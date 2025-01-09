@@ -1,3 +1,4 @@
+/* إزالة تأثير التركيز */
 button, input, select, textarea, img, a {
     outline: none;
     box-shadow: none;
@@ -209,9 +210,7 @@ body {
 .progress-bar {
     width: 95%;
     height: 13px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background-color: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(5px);
+    background-color: #808080;
     border-radius: 35px;
     overflow: hidden;
     margin: 10px 0;
@@ -251,7 +250,7 @@ body {
     background-color: #101010;
     color: #808080;
     padding: 10px 20px;
-    font-size: 13px;
+    font-size: 14px;
     border-top: 0.5px solid #1a1a1a;
     margin-top: 20px;
 }
@@ -363,14 +362,12 @@ body {
 /* Winners Section */
 .winners-section {
     background: linear-gradient(135deg, #2D83EC, #101010);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-   /* background-color: rgba(0, 0, 0, 0.3);*/
-    backdrop-filter: blur(5px);
     color: white;
     padding: 20px;
     margin: 20px 0;
     border-radius: 30px;
-    text-align: center; 
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .winners-section h2 {
@@ -386,12 +383,9 @@ body {
 }
 
 .winner {
-    margin: 5px auto;
-    width: 100%;
-    height: 28px; 
     background: rgba(255, 255, 255, 0.1);
-    padding: 2px;
-    border-radius: 20px;
+    padding: 10px;
+    border-radius: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -411,12 +405,6 @@ body {
     background-clip: text;
     color: transparent;
 }
-
-.saw-reward {
-    font-size: 12px;
-    font-weight: 500;
-    color: #808080; 
-} 
 
 /* ألوان النص */
 .notification.success {
