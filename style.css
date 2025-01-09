@@ -111,6 +111,7 @@ body {
     border-radius: 40px;
     font-size: 13px;
     font-weight: 500;
+    line-height: 1.6;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     color: white;
     text-align: center;
@@ -381,7 +382,7 @@ body {
     color: #fff; /* لون ذهبي */
 }
 
-.winner .reward, .vip-Price, .footer strong {
+.winner .reward, .vip-Price, .footer strong, .payment-section strong{
     background: linear-gradient(45deg, #2D83EC, #1AC9FF);
     background-color: transparent;
     -webkit-background-clip: text; 
