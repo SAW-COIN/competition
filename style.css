@@ -252,7 +252,7 @@ body {
     background-color: #101010;
     color: #808080;
     padding: 10px 20px;
-    font-size: 14px;
+    font-size: 12px;
     border-top: 0.5px solid #1a1a1a;
     margin-top: 20px;
 }
@@ -363,7 +363,7 @@ body {
  
 /* Winners Section */
 .winners-section {
-    background: linear-gradient(135deg, #2D83EC, #101010);
+    background: linear-gradient(135deg, #1E2337, #101010);
     color: white;
     padding: 20px;
     margin: 20px 0;
