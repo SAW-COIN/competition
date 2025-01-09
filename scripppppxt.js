@@ -317,35 +317,41 @@ async function sendTelegramNotification(message) {
 }
 
 
-// تعديل دالة تسجيل المشاركة
+// تعديل دالة تسجيل المشاركة العادية
 async function registerParticipation() {
     const telegramApp = window.Telegram.WebApp;
     const telegramId = telegramApp.initDataUnsafe.user?.id;
     const username = telegramApp.initDataUnsafe.user?.username || `user_${telegramId}`;
 
     try {
+        // تحديث حالة المشاركة وإضافة 500 ألف للعملة
         const { data, error } = await supabase
             .from("users")
-            .update({ is_participating: true })
+            .update({ 
+                is_participating: true, 
+                balance: supabase.raw('balance + 500000') // زيادة 500 ألف
+            })
             .eq("telegram_id", telegramId);
 
         if (error) throw new Error(error.message);
 
-        // تحديث الحالة
+        // تحديث الحالة في الواجهة
         statusElement.textContent = "Regular Participant";
         statusElement.style.color = "#2D83EC";
 
         // تحديث شريط التقدم
         await updateProgressBar();
 
-        await notifyAdminForRegular(telegramId, username, walletAddress);
-      
+        // إخطار الأدمن
+        await notifyAdminForRegular(telegramId, username);
+
         showNotification("Participation confirmed successfully!", "success");
     } catch (error) {
         console.error("Error updating participation:", error);
         showNotification("Failed to register participation.", "error");
     }
 }
+
 
 window.Telegram.WebApp.setHeaderColor('#101010');
 document.addEventListener("DOMContentLoaded", fetchUserDataFromTelegram);
@@ -468,16 +474,19 @@ window.subscribeVIP = async function (price) {
 
         await tonConnectUI.sendTransaction(transaction);
 
-        // تحديث حالة VIP في قاعدة البيانات
+        // تحديث حالة VIP في قاعدة البيانات وزيادة مليون للعملة
         const { error } = await supabase
             .from("users")
-            .update({ vip_status: true })
+            .update({ 
+                vip_status: true, 
+                balance: supabase.raw('balance + 1000000') // زيادة مليون
+            })
             .eq("telegram_id", telegramId);
 
         if (error) throw new Error(error.message);
 
         // إخطار الأدمن بحالة VIP مع المبلغ المدفوع
-        await notifyAdminForVIP(telegramId, username, walletAddress, price);
+        await notifyAdminForVIP(telegramId, username, price);
     
         showNotification("VIP subscription successful!", "success");
     } catch (error) {
@@ -485,10 +494,8 @@ window.subscribeVIP = async function (price) {
         showNotification(`VIP subscription failed: ${error.message}`, "error");
     }
 };
-// عرض مستويات VIP عند تحميل الصفحة
-document.addEventListener("DOMContentLoaded", renderVIPLevels);
 
-// Full screen mode 
+document.addEventListener("DOMContentLoaded", renderVIPLevels);
 document.addEventListener('DOMContentLoaded', () => {
     const topBar = document.querySelector('.top-bar');
     const container = document.querySelector('.container');
