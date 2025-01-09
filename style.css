@@ -210,7 +210,9 @@ body {
 .progress-bar {
     width: 95%;
     height: 13px;
-    background-color: #808080;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
     border-radius: 35px;
     overflow: hidden;
     margin: 10px 0;
@@ -601,3 +603,10 @@ body {
         opacity: 1;
     }
   }
+
+.saw-reward {
+    font-weight: 500;
+    font-size: 13px;
+    color: #F7F9FB;
+} 
+  
