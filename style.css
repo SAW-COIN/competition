@@ -103,10 +103,9 @@ body {
     border-radius: 20px;
     font-size: 14px;
     line-height: 1.6;
-}
+} 
 
-/* قسم الدفع */
-.payment-section {
+/*.payment-section {
     background: linear-gradient(135deg, #2D83EC, #101010);
     padding: 20px;
     margin: 20px 0;
@@ -114,7 +113,7 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     color: white;
     text-align: center;
-}
+}*/
 
 .progress-section {
     background-image: 
@@ -583,4 +582,44 @@ body {
     font-size: 13px;
     color: #F7F9FB;
 } 
-  
+
+
+/* قسم الدفع */
+.payment-section {
+    background: linear-gradient(145deg, #2D83EC, #1AC9FF, #101010);
+    padding: 25px; /* زيادة التباعد */
+    margin: 20px 0;
+    border-radius: 40px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4); /* ظلال أقوى */
+    color: white;
+    text-align: center;
+    position: relative; /* للسماح بإضافة تأثيرات إضافية */
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.1); /* حافة شفافة */
+    transition: all 0.3s ease-in-out; /* تحسين التحولات */
+}
+
+.payment-section:hover {
+    transform: scale(1.02); /* تكبير بسيط عند التمرير */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6); /* ظلال أكثر عند التمرير */
+}
+
+/* تأثير اللمعان */
+.payment-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
+    opacity: 0;
+    transform: rotate(45deg);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.payment-section:hover::before {
+    opacity: 1;
+    transform: rotate(90deg);
+}
+
