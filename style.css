@@ -24,9 +24,8 @@ body {
     font-weight: 700;
     margin: 0;
     padding: 0;
-    background-color: #101010;
+   /* background-color: #101010;*/
     color: #fff;
-    /* تأثير التدرج الأسود المتلاشي إلى اللون #101010 */
     background: linear-gradient(to bottom, #000000 0%, #000000 60px, #101010 100%);
 }
 
