@@ -506,8 +506,8 @@ body {
  
 
 .vip-level button {
-    background-color: #F7F9FB;
-    color: #2D83EC;
+    background: linear-gradient(135deg, #2D83EC, #1AC9FF);
+    color: #fff;
     font-size: 16px;
     width: 90%;
     height: 50px; 
@@ -529,7 +529,7 @@ body {
 }
 
 .vip-level button:active {
-    background-color: #14529e; /* لون عند الضغط */
+    background-color: #F7F9FB; /* لون عند الضغط */
     transform: translateY(1px); /* إنزال الزر قليلاً */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* ظلال أصغر عند الضغط */
 }
