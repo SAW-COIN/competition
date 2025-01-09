@@ -84,7 +84,7 @@ body {
     background: linear-gradient(135deg, #1E3C72, #2A5298, #101010); /* تدرج أعمق وأنيق */
     color: white;
     padding: 10px 20px; /* تقليل المسافات العمودية */
-    border-radius: 30px;
+    border-radius: 40px;
     margin-top: 25px;
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* تأثير أكثر عمقًا */
     position: relative;
@@ -103,7 +103,7 @@ body {
     margin-top: 10px;
     padding: 10px 15px;
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
+    border-radius: 20px;
     font-size: 14px;
     line-height: 1.6;
 }
@@ -113,7 +113,7 @@ body {
     background: linear-gradient(135deg, #2D83EC, #101010);
     padding: 20px;
     margin: 20px 0;
-    border-radius: 30px;
+    border-radius: 40px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     color: white;
     text-align: center;
@@ -129,7 +129,7 @@ body {
     background-position: center;
     padding: 20px;
     margin: 20px 0;
-    border-radius: 30px;
+    border-radius: 40px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 } 
 
@@ -143,31 +143,10 @@ body {
     background-position: center;
     padding: 20px;
     margin: 20px 0;
-    border-radius: 30px;
+    border-radius: 40px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 } 
  
-.qr-code img {
-    width: 200px;
-    height: 200px;
-    border-radius: 10px;
-    border: 2px solid white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.wallet-address {
-    font-family: 'Courier New', Courier, monospace; /* خط مخصص للكود */
-    font-size: 14px; /* حجم الخط */
-    font-weight: bold; /* جعل النص عريض */
-    margin: 10px auto;
-}
-
-/* قسم المدخلات */
-.transaction-input {
-    position: relative;
-    margin: 20px auto;
-    max-width: 400px;
-}
 
 .transaction-input input {
     width: 100%;
@@ -213,7 +192,7 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     background-color: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(5px);
-    border-radius: 35px;
+    border-radius: 40px;
     overflow: hidden;
     margin: 10px 0;
 }
@@ -221,7 +200,7 @@ body {
 .progress {
     height: 100%;
     width: 0;
-    border-radius: 35px;
+    border-radius: 40px;
     background-color: #2D83EC;
     transition: width 0.5s;
 }
@@ -231,7 +210,7 @@ body {
     background: linear-gradient(135deg, #2D83EC, #101010);
     padding: 20px;
     margin: 20px 0;
-    border-radius: 30px;
+    border-radius: 40px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     color: white;
 }
@@ -366,7 +345,7 @@ body {
     color: white;
     padding: 20px;
     margin: 20px 0;
-    border-radius: 30px;
+    border-radius: 40px;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
@@ -386,7 +365,7 @@ body {
 .winner {
     background: rgba(255, 255, 255, 0.1);
     padding: 10px;
-    border-radius: 15px;
+    border-radius: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -460,7 +439,7 @@ body {
     background-position: center;
     padding: 20px;
     margin: 20px 0;
-    border-radius: 30px;
+    border-radius: 40px;
     color: white;
     text-align: center;
 }  
@@ -476,7 +455,7 @@ body {
     background-size: cover;
     background-position: center;
     color: white;
-    border-radius: 30px;
+    border-radius: 40px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: 94%;
     height: 200px; 
