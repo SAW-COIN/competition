@@ -114,6 +114,22 @@ body {
     text-align: center;
 }
 
+.payment-section p {
+    font-weight: 500;
+    margin-top: 5px;
+    padding: 10px 15px;
+    
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    font-size: 13px;
+    line-height: 1.6;
+}  
+
+.payment-section h2 {
+    font-size: 25px;
+}
+
+
 .progress-section {
     background-image: 
     radial-gradient(circle at 24% 23%, rgba(167, 167, 167,0.06) 0%, rgba(167, 167, 167,0.06) 25%,rgba(148, 148, 148,0.06) 25%, rgba(148, 148, 148,0.06) 50%,rgba(129, 129, 129,0.06) 50%, rgba(129, 129, 129,0.06) 75%,rgba(110, 110, 110,0.06) 75%, rgba(110, 110, 110,0.06) 100%),
