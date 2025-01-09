@@ -386,9 +386,10 @@ body {
 }
 
 .winner {
+    width: 100%;
     background: rgba(255, 255, 255, 0.1);
     padding: 10px;
-    border-radius: 15px;
+    border-radius: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
