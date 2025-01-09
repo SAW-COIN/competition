@@ -105,7 +105,7 @@ body {
 } 
 
 .payment-section {
-    background: linear-gradient(135deg, #1E3C72, #2A5298, #101010); /* تدرج أعمق وأنيق */
+    background: linear-gradient(135deg, #101010, #2A5298, #101010); /* تدرج أعمق وأنيق */
     padding: 20px;
     margin: 20px 0;
     border-radius: 40px;
