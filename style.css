@@ -400,7 +400,8 @@ body {
 }
 
 #payNow {
-    margin: 0 auto;
+    display: block; /* لجعل الزر عنصر block */
+    margin: 0 auto; /* لتوسيطه أفقيًا */
     background: linear-gradient(135deg, #2D83EC, #1AC9FF);
     background-size: cover;
     background-position: center;
@@ -417,6 +418,7 @@ body {
     border-bottom: 5px solid #1A5CAB; /* حدود سفلية ثلاثية الأبعاد */
     text-align: center; /* محاذاة النص في الوسط */
 }
+
 
 
 #payNow:hover {
