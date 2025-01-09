@@ -205,7 +205,7 @@ body {
     height: 100%;
     width: 0;
     border-radius: 40px;
-    background-color: #2D83EC;
+    background: linear-gradient(45deg, #2D83EC, #1AC9FF);
     transition: width 0.5s;
 }
 
