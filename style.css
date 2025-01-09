@@ -417,14 +417,9 @@ body {
 }
 
 #payNow {
-    background-image: 
-    radial-gradient(circle at 24% 23%, rgba(167, 167, 167,0.06) 0%, rgba(167, 167, 167,0.06) 25%,rgba(148, 148, 148,0.06) 25%, rgba(148, 148, 148,0.06) 50%,rgba(129, 129, 129,0.06) 50%, rgba(129, 129, 129,0.06) 75%,rgba(110, 110, 110,0.06) 75%, rgba(110, 110, 110,0.06) 100%),
-    radial-gradient(circle at 58% 30%, rgba(14, 14, 14,0.06) 0%, rgba(14, 14, 14,0.06) 25%,rgba(60, 60, 60,0.06) 25%, rgba(60, 60, 60,0.06) 50%,rgba(107, 107, 107,0.06) 50%, rgba(107, 107, 107,0.06) 75%,rgba(153, 153, 153,0.06) 75%, rgba(153, 153, 153,0.06) 100%),
-    radial-gradient(circle at 79% 53%, rgba(225, 225, 225,0.06) 0%, rgba(225, 225, 225,0.06) 25%,rgba(189, 189, 189,0.06) 25%, rgba(189, 189, 189,0.06) 50%,rgba(152, 152, 152,0.06) 50%, rgba(152, 152, 152,0.06) 75%,rgba(116, 116, 116,0.06) 75%, rgba(116, 116, 116,0.06) 100%),
-    linear-gradient(221deg, #101010, #141414);
+    background: linear-gradient(135deg, #2D83EC, #1AC9FF);
     background-size: cover;
     background-position: center;
-    border-bottom: 5px solid #141414;
     color: #fff; /* لون النص */
     font-size: 16px; /* تحسين حجم الخط */
     font-weight: bold;
@@ -435,22 +430,24 @@ body {
     max-width: 320px; /* عرض أقصى للزر */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* ظلال ناعمة */
     transition: all 0.3s ease-in-out; /* تحسين تأثير التحولات */
+    border-bottom: 5px solid #1A5CAB; /* حدود سفلية ثلاثية الأبعاد */
     text-align: center; /* محاذاة النص في الوسط */
 }
 
 
 #payNow:hover {
-    background-color: #1a5aba; /* لون مختلف عند التمرير */
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); /* ظلال أكبر عند التمرير */
-    transform: translateY(-3px); /* رفع الزر قليلاً */
+    transform: translateY(-3px);
+    background-color: #2D83EC;
+    color: white;
 }
 
 #payNow:active {
-    background-color: #14529e; /* لون عند الضغط */
-    transform: translateY(1px); /* إنزال الزر قليلاً */
+    background-color: #F7F9FB; /* لون عند الضغط */
+    transform: translateY(3px); /* إنزال الزر قليلاً */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* ظلال أصغر عند الضغط */
+    border-bottom: 2px solid #1A5CAB; /* تغيير الحدود عند الضغط */
 }
-
 
 .vip-section {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
