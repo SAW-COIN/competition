@@ -110,9 +110,9 @@ body {
     margin: 20px 0;
     border-radius: 40px;
     font-size: 12px;
-    font-weight: 400;
+    font-weight: 450;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    color: #141414;
+    color: #F7F9FB;
 }
 
 .payment-section h2 {
@@ -400,6 +400,7 @@ body {
 }
 
 #payNow {
+    margin: 0 auto;
     background: linear-gradient(135deg, #2D83EC, #1AC9FF);
     background-size: cover;
     background-position: center;
