@@ -361,9 +361,8 @@ body {
 } 
  
  
-/* Winners Section */
 .winners-section {
-    background: linear-gradient(135deg, #1E2337, #101010);
+    background: linear-gradient(135deg, #2D83EC, #1E2337);
     color: white;
     padding: 20px;
     margin: 20px 0;
@@ -371,7 +370,7 @@ body {
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
-
+ 
 .winners-section h2 {
     margin-bottom: 20px;
     font-size: 24px;
