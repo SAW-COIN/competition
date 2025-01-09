@@ -519,7 +519,8 @@ body {
     max-width: 320px; /* عرض أقصى للزر */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* ظلال ناعمة */
     transition: all 0.3s ease-in-out; /* تحسين تأثير التحولات */
-} 
+    border-bottom: 5px solid #1A5CAB; /* حدود سفلية ثلاثية الأبعاد */
+}
 
 .vip-level button:hover {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); /* ظلال أكبر عند التمرير */
@@ -530,10 +531,11 @@ body {
 
 .vip-level button:active {
     background-color: #F7F9FB; /* لون عند الضغط */
-    transform: translateY(1px); /* إنزال الزر قليلاً */
+    transform: translateY(3px); /* إنزال الزر قليلاً */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* ظلال أصغر عند الضغط */
+    border-bottom: 2px solid #1A5CAB; /* تغيير الحدود عند الضغط */
 }
-
+ 
 /* التصميم العادي */
 .top-bar {
     font-size: 13px;
