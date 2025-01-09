@@ -109,17 +109,17 @@ body {
     padding: 20px;
     margin: 20px 0;
     border-radius: 40px;
-    font-size: 13px;
-    font-weight: 500;
+    font-size: 12px;
+    font-weight: 400;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    color: white;
-    text-align: left;
+    color: #141414;
 }
 
 .payment-section h2 {
     text-align: center;
     font-size: 25px;
     font-weight: 700;
+    color: white;
 }
 
 
