@@ -1,4 +1,3 @@
-/* إزالة تأثير التركيز */
 button, input, select, textarea, img, a {
     outline: none;
     box-shadow: none;
@@ -407,6 +406,12 @@ body {
     background-clip: text;
     color: transparent;
 }
+
+.saw-reward {
+    font-size: 12px;
+    font-weight: 500;
+    color: #808080; 
+} 
 
 /* ألوان النص */
 .notification.success {
