@@ -345,7 +345,7 @@ body {
  
  
 .winners-section {
-    background: linear-gradient(135deg, #2D83EC, #1E2337);
+    background: linear-gradient(135deg, #101010, #2A5298, #101010); /* تدرج أعمق وأنيق */
     color: white;
     padding: 20px;
     margin: 20px 0;
@@ -356,13 +356,13 @@ body {
  
 .winners-section h2 {
     margin-bottom: 10px;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
 }
 
 .winners-section  p {
     text-align: left;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 500;
     color: #808080;
 } 
@@ -389,7 +389,7 @@ body {
     color: #fff; /* لون ذهبي */
 }
 
-.winner .reward, .vip-Price, .footer strong, .payment-section strong{
+.winner .reward, .vip-Price, .footer strong, .payment-section strong, .winners-section strong {
     background: linear-gradient(45deg, #2D83EC, #1AC9FF);
     background-color: transparent;
     -webkit-background-clip: text; 
