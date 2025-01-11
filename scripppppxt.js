@@ -424,7 +424,7 @@ document.getElementById("payNow").addEventListener("click", makePayment);
 // عرض مستويات VIP في الواجهة
 function renderVIPLevels() {
     const vipLevels = [
-        { id: 1, name: "VIP Silver", price: 5, features: "Basic perks and increased chances." },
+        { id: 1, name: "VIP Silver", price: 0.00000005, features: "Basic perks and increased chances." },
         { id: 2, name: "VIP Gold", price: 20, features: "Enhanced perks and increased chances." },
         { id: 3, name: "VIP Platinum", price: 40, features: "Premium perks and maximum chances." },
     ];
