@@ -505,11 +505,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (Telegram.WebApp.isFullscreen) {
             topBar.classList.add('fullscreen');
             container.classList.add('fullscreen-container');
-            userName.classList.add('fullscreen'); // إظهار العنصر في وضع الشاشة الكاملة
         } else {
             topBar.classList.remove('fullscreen');
             container.classList.remove('fullscreen-container');
-            userName.classList.remove('fullscreen'); // إخفاء العنصر في الوضع العادي
         }
     }
 
