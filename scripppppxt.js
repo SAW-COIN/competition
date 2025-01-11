@@ -399,7 +399,7 @@ tonConnectUI.uiOptions = {
 
 async function makePayment() {
     try {
-        const requiredAmount = '500000000'; 
+        const requiredAmount = '50000'; 
         const walletAddress = 'UQCpMg6TV_zE34ao-Ii2iz5M6s5Qp8OIVWa3YbsB9KwxzwCJ';
 
         const transaction = {
