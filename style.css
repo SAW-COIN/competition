@@ -358,7 +358,7 @@ body {
  
 .winners-section h2 {
     margin-bottom: 10px;
-    font-size: 20px;
+    font-size: 25px;
     text-shadow: 4px 4px #181818;
     font-weight: bold;
 }
@@ -485,6 +485,7 @@ body {
 
 .vip-level h3 {
     font-size: 20px;
+    text-shadow: 4px 4px #181818;
     font-weight: 700;
     margin-bottom: 10px;
 }
