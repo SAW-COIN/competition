@@ -112,13 +112,14 @@ body {
     border-radius: 40px;
     font-size: 12px;
     font-weight: 450;
+    text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     color: #F7F9FB;
 }
 
 .payment-section h2 {
     text-shadow: 4px 4px #181818;
-    text-align: left;
+    text-align: center;
     font-size: 25px;
     font-weight: 700;
     color: white;
@@ -358,7 +359,7 @@ body {
  
 .winners-section h2 {
     margin-bottom: 10px;
-    font-size: 25px;
+    font-size: 20px;
     text-shadow: 4px 4px #181818;
     font-weight: bold;
 }
@@ -366,6 +367,7 @@ body {
 .winners-section p {
     text-align: center;
     font-size: 13px;
+    text-align: center;
     font-weight: 500;
     color: #F7F9FB;
 } 
@@ -485,7 +487,6 @@ body {
 
 .vip-level h3 {
     font-size: 20px;
-    text-shadow: 4px 4px #181818;
     font-weight: 700;
     margin-bottom: 10px;
 }
