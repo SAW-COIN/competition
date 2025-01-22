@@ -226,6 +226,12 @@ body {
     line-height: 1.8;
 }
 
+.terms-section h2 {
+    font-size: 25px;
+    color: #fff;
+    text-shadow: 4px 4px #181818;
+} 
+
 .footer {
     font-weight: 500;
     text-align: center;
@@ -448,9 +454,8 @@ body {
     background-size: cover;
     background-position: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background-color: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(5px);
-    padding: 21px;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 20px;
     margin: 20px 0;
     border-radius: 50px;
     color: white;
@@ -468,16 +473,14 @@ body {
     color: white;
     border-radius: 50px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
+    width: 80%;
     height: 200px; 
     padding: 15px;
-    margin: 18px auto; /* التوسيط داخليًا */
+    margin: 20px auto; /* التوسيط داخليًا */
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 } 
- 
- 
- 
+
 
 .vip-level h3 {
     font-size: 20px;
