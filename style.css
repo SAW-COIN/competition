@@ -455,6 +455,7 @@ body {
     color: white;
     text-align: center;
     display: flex; /* تفعيل نظام الفلكس */
+    flex-direction: column; /* ترتيب العناصر عموديًا */
     justify-content: center; /* توسيط العناصر أفقيًا */
     align-items: center; /* توسيط العناصر عموديًا */
 }
