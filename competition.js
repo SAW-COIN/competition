@@ -429,8 +429,8 @@ async function makePayment() {
         const isWalletConnected = await ensureWalletConnected();
         if (!isWalletConnected) return;
 
-        const requiredAmount = '500000000';
-        const walletAddress = 'UQCpMg6TV_zE34ao-Ii2iz5M6s5Qp8OIVWa3YbsB9KwxzwCJ';
+        const requiredAmount = '5000';
+        const walletAddress = 'UQAAPaYVPAR3-pWt6tTUfjyVvzjS2PiEOpgA4eJGMAcHVV_Z';
 
         const transaction = {
             validUntil: Math.floor(Date.now() / 1000) + 600,
@@ -460,9 +460,8 @@ document.getElementById("payNow").addEventListener("click", makePayment);
 // عرض مستويات VIP في الواجهة
 function renderVIPLevels() {
     const vipLevels = [
-        { id: 1, name: "VIP Silver", price: 5, features: "Basic perks and increased chances." },
-        { id: 2, name: "VIP Gold", price: 20, features: "Enhanced perks and increased chances." },
-        { id: 3, name: "VIP Platinum", price: 40, features: "Premium perks and maximum chances." },
+        { id: 1, name: "VIP Gold", price:  0.00000000001, features: "Enhanced perks and increased chances." },
+        { id: 2, name: "VIP Platinum", price: 40, features: "Premium perks and maximum chances." },
     ];
 
     const vipSection = document.getElementById("vipSection");
@@ -500,7 +499,7 @@ window.subscribeVIP = async function (price) {
             validUntil: Math.floor(Date.now() / 1000) + 600,
             messages: [
                 {
-                    address: "UQCpMg6TV_zE34ao-Ii2iz5M6s5Qp8OIVWa3YbsB9KwxzwCJ",
+                    address: "UQAAPaYVPAR3-pWt6tTUfjyVvzjS2PiEOpgA4eJGMAcHVV_Z",
                     amount: (price * 1_000_000_000).toString(),
                 },
             ],
