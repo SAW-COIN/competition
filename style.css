@@ -473,10 +473,10 @@ body {
     color: white;
     border-radius: 50px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 80%;
+    width: 88%;
     height: 200px; 
     padding: 15px;
-    margin: 20px auto; /* التوسيط داخليًا */
+    margin: 7px auto; /* التوسيط داخليًا */
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 } 
