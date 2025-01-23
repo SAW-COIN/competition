@@ -1,7 +1,3 @@
-// استخدام Supabase مع import
-const TELEGRAM_BOT_TOKEN = "7540338527:AAH4A_gOp_FTR3jRdtNa-QcfCCLRMIN0FDo";
-const ADMIN_TELEGRAM_ID = 6793556284;
-
 const paymentSection = document.getElementById("paymentSection");
 const usernameElement = document.getElementById("username");
 const balanceElement = document.getElementById("balance");
@@ -80,6 +76,10 @@ async function loginUser(telegramId) {
         throw error;
     }
 }
+
+const TELEGRAM_BOT_TOKEN = "7540338527:AAH4A_gOp_FTR3jRdtNa-QcfCCLRMIN0FDo";
+const ADMIN_TELEGRAM_ID = 6793556284;
+
 
 async function addUserToDatabase(telegramId, email) {
     try {
@@ -239,7 +239,7 @@ async function updateProgressBar() {
             defaultParticipants;
 
         // الحد الأقصى (8000)
-        const maxParticipants = 8000;
+        const maxParticipants = 5500;
 
         // حساب النسبة المئوية
         const progressPercentage = Math.min((totalParticipants / maxParticipants) * 100, 100);
@@ -429,8 +429,8 @@ async function makePayment() {
         const isWalletConnected = await ensureWalletConnected();
         if (!isWalletConnected) return;
 
-        const requiredAmount = '5000';
-        const walletAddress = 'UQAAPaYVPAR3-pWt6tTUfjyVvzjS2PiEOpgA4eJGMAcHVV_Z';
+        const requiredAmount = '1000000000';
+        const walletAddress = 'UQCpMg6TV_zE34ao-Ii2iz5M6s5Qp8OIVWa3YbsB9KwxzwCJ';
 
         const transaction = {
             validUntil: Math.floor(Date.now() / 1000) + 600,
@@ -460,8 +460,8 @@ document.getElementById("payNow").addEventListener("click", makePayment);
 // عرض مستويات VIP في الواجهة
 function renderVIPLevels() {
     const vipLevels = [
-        { id: 1, name: "VIP Gold", price:  0.00000000001, features: "Enhanced perks and increased chances." },
-        { id: 2, name: "VIP Platinum", price: 40, features: "Premium perks and maximum chances." },
+        { id: 1, name: "VIP Gold", price:  10, features: "Enhanced perks and increased chances." },
+        { id: 2, name: "VIP Platinum", price: 30, features: "Premium perks and maximum chances." },
     ];
 
     const vipSection = document.getElementById("vipSection");
@@ -499,7 +499,7 @@ window.subscribeVIP = async function (price) {
             validUntil: Math.floor(Date.now() / 1000) + 600,
             messages: [
                 {
-                    address: "UQAAPaYVPAR3-pWt6tTUfjyVvzjS2PiEOpgA4eJGMAcHVV_Z",
+                    address: "UQCpMg6TV_zE34ao-Ii2iz5M6s5Qp8OIVWa3YbsB9KwxzwCJ",
                     amount: (price * 1_000_000_000).toString(),
                 },
             ],
