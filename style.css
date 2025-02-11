@@ -1,1 +1,662 @@
-button,input,select,textarea,img,a{outline:none;box-shadow:none;border:none;appearance:none;-webkit-appearance:none;-moz-appearance:none}*{-webkit-tap-highlight-color:#fff0}img{pointer-events:none}body{font-family:'Rubik',sans-serif;font-weight:700;margin:0;padding:0;color:#fff;background-image:linear-gradient(to bottom,#000000,#060606,#101010,#141414,#141414,#060606,#000000);background-size:cover;background-position:center}#Statustxtvip{margin-top:10px;margin-bottom:15px;text-align:center;font-size:20px;color:#fff}#Statustxtprogressvip{margin-top:10px;margin-bottom:20px;font-weight:500;text-align:center;font-size:13px;color:gray}#participant,#Statustxtprogress{font-weight:500;text-align:left;font-size:13px;color:gray}.container{max-width:800px;margin:auto;padding:20px}.container.fullscreen-container{margin-top:70px}.header-image{position:absolute;bottom:0;right:0;width:160px;height:160px;object-fit:contain;z-index:6}.header{text-align:center;border:1px solid #101010;background:linear-gradient(135deg,#1E3C72,#2A5298,#101010);color:#fff;padding:10px 20px;border-radius:10px 10px 50px 50px;box-shadow:0 6px 10px rgb(0 0 0 / .3);position:relative}.header h1{text-shadow:4px 4px #181818;font-size:25px;z-index:7;position:relative}.header p{position:relative;z-index:10;font-weight:500;margin-top:10px;padding:10px 15px;background:rgb(255 255 255 / .1);border-radius:20px;font-size:14px;line-height:1.6}.payment-section{border:1px solid #101010;background:linear-gradient(135deg,#101010,#2A5298,#101010);padding:20px;margin:20px 0;border-radius:50px;font-size:14px;font-weight:450;text-align:center;box-shadow:0 4px 6px rgb(0 0 0 / .2);color:#F7F9FB}.payment-section h2{text-shadow:4px 4px #181818;text-align:center;font-size:25px;font-weight:700;color:#fff}.progress-section{border:1px solid #101010;background-image:linear-gradient(to bottom,#000000,#060606,#0b0b0b,#101010,#141414,#141414,#141414,#141414,#101010,#0b0b0b,#060606,#000000);background-size:cover;background-position:center;padding:20px;margin:20px 0;border-radius:50px;box-shadow:0 2px 4px rgb(0 0 0 / .1)}.additional-section{background-image:linear-gradient(to bottom,#000000,#060606,#0b0b0b,#101010,#141414,#141414,#141414,#141414,#101010,#0b0b0b,#060606,#000000);background-size:cover;background-position:center;padding:20px;margin:20px 0;border-radius:50px;box-shadow:0 2px 4px rgb(0 0 0 / .1)}.transaction-input input{width:100%;padding:15px 20px;font-size:16px;border-radius:30px;border:2px solid #fff;box-sizing:border-box;background:rgb(255 255 255 / .1);color:#fff}.transaction-input input::placeholder{color:rgb(255 255 255 / .6)}.transaction-input button{position:absolute;top:50%;right:0;transform:translateY(-50%);width:30%;height:100%;font-size:15px;background:#F7F9FB;color:#000;border:none;border-radius:0 20px 20px 0;cursor:pointer;transition:background 0.3s,color 0.3s}.transaction-input button:hover{background:#2D83EC;color:#fff;box-shadow:0 4px 6px rgb(0 0 0 / .2)}.progress-bar{width:95%;height:13px;box-shadow:0 4px 6px rgb(0 0 0 / .1);background-color:rgb(0 0 0 / .3);backdrop-filter:blur(5px);border-radius:50px;overflow:hidden;margin:10px 0}.progress{height:100%;width:0;border-radius:50px;background:linear-gradient(45deg,#2D83EC,#1AC9FF);transition:width 0.5s}.terms-section{border:1px solid #101010;background:linear-gradient(135deg,#101010,#2A5298,#101010);padding:20px;margin:20px 0;border-radius:50px;box-shadow:0 4px 6px rgb(0 0 0 / .2);color:#fff}.terms-section ul{font-weight:500;font-size:13px;color:#fff;margin:10px 0;padding-left:20px;list-style:disc;line-height:1.8}.terms-section h2{font-size:25px;color:#fff;text-shadow:4px 4px #181818}.footer{font-weight:500;text-align:center;box-shadow:0 4px 6px rgb(0 0 0 / .1);background-color:rgb(0 0 0 / .00000003);color:gray;padding:10px 20px;font-size:12px;border-top:.5px solid #1a1a1a;margin-top:20px}.footer p{margin:0}.footer strong{font-weight:600}.user-name{top:34px;z-index:1000;position:fixed;width:auto;height:29px;left:48%;transform:translateX(-48%);display:none;justify-content:space-between;align-items:center;border-radius:30px;box-shadow:0 4px 6px rgb(0 0 0 / .1);background-color:rgb(0 0 0 / .3);backdrop-filter:blur(5px)}.user-name.fullscreen{display:flex}.user-name span{padding-right:2px;padding-left:2px;font-size:12px;margin-left:2px;margin-right:8px}.user-Balance span{margin-left:1px;margin-right:5px}.user-Balance{position:absolute;left:23px;display:flex;justify-content:space-between;align-items:center;padding-right:3px;padding-left:0;width:auto;height:28px;border:.1px solid #101010;border-radius:30px}#ton-connect button{top:5px;margin-left:5px;margin-right:5px;width:40%;height:28px;position:absolute;right:18px;font-size:10px;white-space:nowrap;display:flex;justify-content:space-between;align-items:center;border:.1px solid #101010;border-radius:30px;background-color:rgb(0 0 0 / .1)}#ton-connect{width:100%;display:flex;align-items:center;justify-content:center}.userrr-imagee{width:26px;height:26px;border-radius:50%;object-fit:cover}.balance-icon{width:31px;height:31px;border-radius:50%;object-fit:cover}.winners-section{border:1px solid #101010;background:linear-gradient(135deg,#101010,#2A5298,#101010);color:#fff;padding:20px;margin:20px 0;border-radius:50px;text-align:center;box-shadow:0 4px 6px rgb(0 0 0 / .2)}.winners-section h2{margin-bottom:10px;font-size:20px;text-shadow:4px 4px #181818;font-weight:700}.winners-section p{text-align:center;font-size:13px;text-align:center;font-weight:500;color:#F7F9FB}.winners{display:grid;grid-template-columns:repeat(1,1fr);gap:10px;background:rgb(255 255 255 / .1);padding:10px;border-radius:20px;display:flex;justify-content:space-between;align-items:center;font-size:13px;box-shadow:0 2px 4px rgb(0 0 0 / .1)}.winner{background:rgb(255 255 255 / .1);padding:10px;border-radius:20px;display:flex;justify-content:space-between;align-items:center;font-size:13px;box-shadow:0 2px 4px rgb(0 0 0 / .1)}.winner .position{font-weight:700;color:#fff}.winner .reward,.vip-Price,.footer strong,.payment-section strong,.winners-section strong{background:linear-gradient(45deg,#2D83EC,#1AC9FF);background-color:#fff0;-webkit-background-clip:text;background-clip:text;color:#fff0}.notification.success{color:#2D83EC}.notification.error{color:red}#payNow{display:block;margin:0 auto;background:linear-gradient(135deg,#2D83EC,#1AC9FF);background-size:cover;background-position:center;color:#fff;font-size:16px;font-weight:700;height:50px;border-radius:50px;cursor:pointer;width:90%;max-width:320px;box-shadow:0 4px 10px rgb(0 0 0 / .3);transition:all 0.3s ease-in-out;border-bottom:5px solid #1A5CAB;text-align:center}#payNow:hover{box-shadow:0 6px 15px rgb(0 0 0 / .5);transform:translateY(-3px);background-color:#2D83EC;color:#fff}#payNow:active{background-color:#F7F9FB;transform:translateY(3px);box-shadow:0 2px 5px rgb(0 0 0 / .3);border-bottom:2px solid #1A5CAB}.vip-section{border:1px solid #101010;box-shadow:0 4px 6px rgb(0 0 0 / .1);background-size:cover;background-position:center;box-shadow:0 4px 6px rgb(0 0 0 / .1);background-color:rgb(0 0 0 / .1);padding:20px;margin:20px 0;border-radius:50px;color:#fff;text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center}.vip-level{border:1px solid #101010;background-image:linear-gradient(to bottom,#000000,#060606,#0b0b0b,#101010,#141414,#141414,#141414,#141414,#101010,#0b0b0b,#060606,#000000);background-size:cover;background-position:center;color:#fff;border-radius:50px;box-shadow:0 4px 10px rgb(0 0 0 / .1);width:90%;height:200px;padding:15px;margin-top:10px;margin-bottom:10px;margin-right:3px;text-align:center;transition:transform 0.3s ease,box-shadow 0.3s ease}.vip-level h3{font-size:20px;font-weight:700;margin-bottom:10px}.vip-features{font-weight:500;margin-left:20px;text-align:left;font-size:13px;color:gray}.vip-level button{background:linear-gradient(135deg,#2D83EC,#1AC9FF);color:#fff;font-size:16px;width:90%;height:50px;border:none;border-radius:50px;cursor:pointer;text-transform:uppercase;font-weight:700;max-width:320px;box-shadow:0 4px 10px rgb(0 0 0 / .3);transition:all 0.3s ease-in-out;border-bottom:5px solid #1A5CAB}.vip-level button:hover{box-shadow:0 6px 15px rgb(0 0 0 / .5);transform:translateY(-3px);background-color:#2D83EC;color:#fff}.vip-level button:active{background-color:#F7F9FB;transform:translateY(3px);box-shadow:0 2px 5px rgb(0 0 0 / .3);border-bottom:2px solid #1A5CAB}.top-bar{font-size:13px;font-weight:500;position:fixed;top:5px;left:50%;transform:translateX(-50%);margin:0 auto;width:88%;height:38px;border-radius:50px;color:#fff;display:flex;justify-content:space-between;align-items:center;z-index:1000}.top-bar.fullscreen{box-shadow:0 4px 6px rgb(0 0 0 / .1);background-color:rgb(0 0 0 / .3);backdrop-filter:blur(5px);top:68px;border-radius:30px}.notification{position:fixed;top:-100px;left:50%;transform:translateX(-50%);background-color:rgb(255 255 255 / .2);backdrop-filter:blur(9px);padding:10px 25px;border:1px solid #101010;border-radius:30px;font-size:12px;z-index:1000;opacity:0;width:240px;max-width:80%;text-align:center;transition:opacity 0.5s ease,top 0.5s ease}.notification.show{animation:slideDown 0.5s ease-out forwards;opacity:1}@keyframes slideDown{0%{top:-100px;opacity:0}100%{top:70px;opacity:1}}.saw-reward{font-weight:600;font-size:13px;color:#F7F9FB}#ton-baln{box-sizing:border-box;position:relative;left:50%;transform:translateX(-50%);margin-top:25px;margin-bottom:8px;border-radius:50px 50px 10px 10px;width:98.5%;height:38px;display:flex;justify-content:center;align-items:center;background-image:linear-gradient(to bottom right,#000000,#060606,#0b0b0b,#101010,#141414,#141414,#141414,#141414,#101010,#0b0b0b,#060606,#000000);background-size:cover;background-position:center;border:.5px solid #101010}.tonaccount{width:100%;height:100%;display:flex;justify-content:space-between;align-items:center;padding:0 15px;color:#fff;font-size:16px;font-weight:500}.ton-text{color:gray;font-size:13px}.ton-balance{font-size:13px;font-weight:700;color:#fff;display:flex;align-items:center;gap:2px}
+button, input, select, textarea, img, a {
+    outline: none;
+    box-shadow: none;
+    border: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* منع سحب الصور */
+img {
+    pointer-events: none;
+}
+
+
+body {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    background-image: linear-gradient(to bottom, #000000, #060606, #101010, #141414, #141414, #060606, #000000);
+    background-size: cover;
+    background-position: center;
+}
+
+
+#Statustxtvip {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 20px;
+    color: #fff; /* لون ذهبي */
+}
+
+#Statustxtprogressvip {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    text-align: center;
+    font-size: 13px;
+    color: #808080; 
+} 
+
+#participant, #Statustxtprogress {
+    font-weight: 500;
+    text-align: left;
+    font-size: 13px;
+    color: #808080; /* لون ذهبي */
+} 
+
+/* الحاوية في الوضع العادي */
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* الحاوية في وضع ملء الشاشة */
+.container.fullscreen-container {
+    margin-top: 70px; /* دفع الحاوية لأسفل */
+}
+
+.header-image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 160px;
+    height: 160px;
+    object-fit: contain;
+   /* object-fit: cover;*/ /* تكبير الصورة لتغطية المساحة بالكامل */
+    z-index: 6; /* التأكد من أن الصورة في الخلف */
+} 
+/* تصغير ارتفاع الهيدر */
+.header {
+    text-align: center;
+    border: 1px solid #101010;
+    background: linear-gradient(135deg, #1E3C72, #2A5298, #101010); /* تدرج أعمق وأنيق */
+    color: white;
+    padding: 10px 20px; /* تقليل المسافات العمودية */
+    border-radius: 10px 10px 50px 50px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* تأثير أكثر عمقًا */
+    position: relative;
+}
+
+.header h1 {
+    text-shadow: 4px 4px #181818;
+    font-size: 25px;
+    z-index: 7; /* ضمان ظهور النص فوق الصورة */
+    position: relative;
+}
+ 
+.header p {
+    position: relative;
+    z-index: 10;
+    font-weight: 500;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    font-size: 14px;
+    line-height: 1.6;
+} 
+
+.payment-section {
+    border: 1px solid #101010;
+    background: linear-gradient(135deg, #101010, #2A5298, #101010); /* تدرج أعمق وأنيق */
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 450;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    color: #F7F9FB;
+}
+
+.payment-section h2 {
+    text-shadow: 4px 4px #181818;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 700;
+    color: white;
+}
+
+
+.progress-section {
+    border: 1px solid #101010;
+    background-image: linear-gradient(to bottom, #000000, #060606, #0b0b0b, #101010, #141414, #141414, #141414, #141414, #101010, #0b0b0b, #060606, #000000);
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+} 
+
+.additional-section {
+    background-image: linear-gradient(to bottom, #000000, #060606, #0b0b0b, #101010, #141414, #141414, #141414, #141414, #101010, #0b0b0b, #060606, #000000);
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+} 
+ 
+
+.transaction-input input {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 16px;
+    border-radius: 20px;
+    border: 2px solid white;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.transaction-input input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.transaction-input button {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 30%;
+    height: 100%;
+    font-size: 15px;
+    background: #F7F9FB;
+    color: #000;
+    border: none;
+    border-radius: 0 20px 20px 0;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+.transaction-input button:hover {
+    background: #2D83EC;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* شريط التقدم */
+.progress-bar {
+    width: 95%;
+    height: 13px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.progress {
+    height: 100%;
+    width: 0;
+    border-radius: 50px;
+    background: linear-gradient(45deg, #2D83EC, #1AC9FF);
+    transition: width 0.5s;
+}
+
+/* قسم الشروط والأحكام */
+.terms-section {
+    border: 1px solid #101010;
+    background: linear-gradient(135deg, #101010, #2A5298, #101010); /* تدرج أعمق وأنيق */
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+.terms-section ul {
+    font-weight: 500;
+    font-size: 13px;
+    color: #fff;
+    margin: 10px 0;
+    padding-left: 20px;
+    list-style: disc;
+    line-height: 1.8;
+}
+
+.terms-section h2 {
+    font-size: 25px;
+    color: #fff;
+    text-shadow: 4px 4px #181818;
+} 
+
+.footer {
+    font-weight: 500;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.00000003);
+    color: #808080;
+    padding: 10px 20px;
+    font-size: 12px;
+    border-top: 0.5px solid #1a1a1a;
+    margin-top: 20px;
+}
+
+.footer p {
+    margin: 0;
+}
+
+.footer strong {
+    font-weight: 600;
+}
+ 
+.user-name {
+    top: 34px;
+    z-index: 1000;
+    position: fixed;
+    width: auto;
+    height: 29px;
+    left: 48%;
+    transform: translateX(-48%);
+    display: none; /* اجعل العنصر مخفيًا بشكل افتراضي */
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+}
+
+.user-name.fullscreen {
+    display: flex; /* إظهار العنصر فقط في وضع الشاشة الكاملة */
+} 
+
+.user-name span { 
+    padding-right: 2px;
+    padding-left: 2px;
+    font-size: 12px;
+    margin-left: 2px;
+    margin-right: 8px;
+}
+
+.user-Balance span { 
+    margin-left: 1px;
+    margin-right: 5px;
+}
+
+.user-Balance {
+    position: absolute;
+    left: 23px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 3px;
+    padding-left: 0;
+    width: auto;
+    height: 28px; 
+    border: 0.1px solid #101010;
+    border-radius: 20px; 
+   /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.1); 
+    backdrop-filter: blur(5px);*/
+} 
+
+#ton-connect button {
+    top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 40%;
+    height: 28px; 
+    position: absolute;
+    right: 18px;
+    font-size: 10px;
+    white-space: nowrap;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 0.1px solid #101010;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.1); 
+   /* backdrop-filter: blur(5px);*/
+}   
+
+#ton-connect {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.userrr-imagee {
+    width: 26px; /* عرض الصورة */
+    height: 26px; /* ارتفاع الصورة */
+    border-radius: 50%; /* جعل الصورة دائرية */
+    object-fit: cover; /* تأكد من احتواء الصورة داخل الدائرة */
+} 
+
+.balance-icon {
+    width: 31px; /* عرض الصورة */
+    height: 31px; /* ارتفاع الصورة */
+    border-radius: 50%; /* جعل الصورة دائرية */
+    object-fit: cover; /* تأكد من احتواء الصورة داخل الدائرة */
+} 
+ 
+ 
+.winners-section {
+    border: 1px solid #101010;
+    background: linear-gradient(135deg, #101010, #2A5298, #101010); /* تدرج أعمق وأنيق */
+    color: white;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+ 
+.winners-section h2 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    text-shadow: 4px 4px #181818;
+    font-weight: bold;
+}
+
+.winners-section p {
+    text-align: center;
+    font-size: 13px;
+    text-align: center;
+    font-weight: 500;
+    color: #F7F9FB;
+} 
+
+.winners {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.winner {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.winner .position {
+    font-weight: bold;
+    color: #fff; /* لون ذهبي */
+}
+
+.winner .reward, .vip-Price, .footer strong, .payment-section strong, .winners-section strong {
+    background: linear-gradient(45deg, #2D83EC, #1AC9FF);
+    background-color: transparent;
+    -webkit-background-clip: text; 
+    background-clip: text;
+    color: transparent;
+}
+
+/* ألوان النص */
+.notification.success {
+    color: #2D83EC; 
+}
+
+.notification.error {
+    color: #ff0000; 
+}
+
+#payNow {
+    display: block; /* لجعل الزر عنصر block */
+    margin: 0 auto; /* لتوسيطه أفقيًا */
+    background: linear-gradient(135deg, #2D83EC, #1AC9FF);
+    background-size: cover;
+    background-position: center;
+    color: #fff; /* لون النص */
+    font-size: 16px; /* تحسين حجم الخط */
+    font-weight: bold;
+    height: 50px; 
+    border-radius: 20px; /* زوايا مستديرة أكثر */
+    cursor: pointer;
+    width: 90%; /* جعل الزر بعرض الحاوية */
+    max-width: 320px; /* عرض أقصى للزر */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* ظلال ناعمة */
+    transition: all 0.3s ease-in-out; /* تحسين تأثير التحولات */
+    border-bottom: 5px solid #1A5CAB; /* حدود سفلية ثلاثية الأبعاد */
+    text-align: center; /* محاذاة النص في الوسط */
+}
+
+
+
+#payNow:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); /* ظلال أكبر عند التمرير */
+    transform: translateY(-3px);
+    background-color: #2D83EC;
+    color: white;
+}
+
+#payNow:active {
+    background-color: #F7F9FB; /* لون عند الضغط */
+    transform: translateY(3px); /* إنزال الزر قليلاً */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* ظلال أصغر عند الضغط */
+    border-bottom: 2px solid #1A5CAB; /* تغيير الحدود عند الضغط */
+}
+
+
+.vip-section {
+    border: 1px solid #101010;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 20px;
+    color: white;
+    text-align: center;
+    display: flex; /* تفعيل نظام الفلكس */
+    flex-direction: column; /* ترتيب العناصر عموديًا */
+    justify-content: center; /* توسيط العناصر أفقيًا */
+    align-items: center; /* توسيط العناصر عموديًا */
+}  
+
+.vip-level {
+    border: 1px solid #101010;
+    background-image: linear-gradient(to bottom, #000000, #060606, #0b0b0b, #101010, #141414, #141414, #141414, #141414, #101010, #0b0b0b, #060606, #000000);
+    background-size: cover;
+    background-position: center;
+    color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    height: 200px; 
+    padding: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 3px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+} 
+
+
+.vip-level h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.vip-features {
+    font-weight: 500;
+    margin-left: 20px;
+    text-align: left;
+    font-size: 13px;
+    color: #808080; /* لون ذهبي */
+} 
+ 
+
+.vip-level button {
+    background: linear-gradient(135deg, #2D83EC, #1AC9FF);
+    color: #fff;
+    font-size: 16px;
+    width: 90%;
+    height: 50px; 
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    max-width: 320px; /* عرض أقصى للزر */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* ظلال ناعمة */
+    transition: all 0.3s ease-in-out; /* تحسين تأثير التحولات */
+    border-bottom: 5px solid #1A5CAB; /* حدود سفلية ثلاثية الأبعاد */
+}
+
+.vip-level button:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); /* ظلال أكبر عند التمرير */
+    transform: translateY(-3px);
+    background-color: #2D83EC;
+    color: white;
+}
+
+.vip-level button:active {
+    background-color: #F7F9FB; /* لون عند الضغط */
+    transform: translateY(3px); /* إنزال الزر قليلاً */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* ظلال أصغر عند الضغط */
+    border-bottom: 2px solid #1A5CAB; /* تغيير الحدود عند الضغط */
+}
+ 
+/* التصميم العادي */
+.top-bar {
+    font-size: 13px;
+    font-weight: 500;
+    position: fixed;
+    top: 5px; /* وضع البار في الأعلى */
+    left: 50%; /* تمركز العنصر من اليسار */
+    transform: translateX(-50%); /* تحريك العنصر للمنتصف */
+    margin: 0 auto;
+    width: 88%;
+    height: 38px;
+    border-radius: 20px; /* زوايا مستديرة في الأسفل */
+    /*box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.3); 
+    backdrop-filter: blur(5px);*/
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000; /* التأكد من بقاء البار فوق جميع العناصر الأخرى */
+} 
+
+/* التصميم في وضع ملء الشاشة */
+.top-bar.fullscreen {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.3); 
+    backdrop-filter: blur(5px);
+    top: 68px; /* دفع البار للأسفل */
+    border-radius: 20px; /* نفس الزوايا */
+}
+
+
+/* تصميم الإشعار */
+.notification {
+    position: fixed;
+    top: -100px; /* البداية من فوق الشاشة */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(9px); 
+    padding: 10px 25px;
+    border: 1px solid #101010;
+    border-radius: 10px;
+    font-size: 12px;
+    z-index: 1000;
+    opacity: 0; /* البداية غير مرئية */
+    width: 240px;
+    max-width: 80%;
+    text-align: center;
+    transition: opacity 0.5s ease, top 0.5s ease;
+}
+
+/* عند تفعيل الإشعار */
+.notification.show {
+    animation: slideDown 0.5s ease-out forwards;
+    opacity: 1;
+}
+
+/* تأثير التحريك من الأعلى */
+@keyframes slideDown {
+    0% {
+        top: -100px;
+        opacity: 0;
+    }
+    100% {
+        top: 70px;
+        opacity: 1;
+    }
+  }
+
+.saw-reward {
+    font-weight: 600;
+    font-size: 13px;
+    color: #F7F9FB;
+} 
+
+#ton-baln {
+    box-sizing: border-box;
+    position: relative;
+    left: 50%; /* تمركز العنصر من اليسار */
+    transform: translateX(-50%); /* تحريك العنصر للمنتصف */
+    margin-top: 25px;
+    margin-bottom: 8px;
+    border-radius: 20px 20px 10px 10px;
+    width: 98.5%; /* عرض الحاوية كامل الشاشة */
+    height: 38px; /* ارتفاع الحاوية */
+    display: flex;
+    justify-content: center; /* توسيط المحتوى */
+    align-items: center;
+    background: linear-gradient(135deg, #1E3C72, #2A5298, #101010);           background-size: cover;
+    background-position: center; /* لون الخلفية الداكن */
+    border: 0.5px solid #101010; /* حد سفلي */
+}
+
+.tonaccount {
+    width: 100%; /* العرض كامل */
+    height: 100%; /* الارتفاع بالكامل */
+    display: flex;
+    justify-content: space-between; /* توزيع العناصر */
+    align-items: center;
+    padding: 0 15px; /* هامش داخلي */
+    color: #fff; /* لون النص */
+    font-size: 16px; 
+    font-weight: 500;
+}
+
+.ton-text {
+    color: #808080; /* لون النص الرمادي */
+    font-size: 13px;
+}
+
+.ton-balance {
+    font-size: 13px;
+    font-weight: bold;
+    color: #fff; /* لون أزرق فاتح */
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
